@@ -44,29 +44,29 @@ export async function GET(req: Request) {
     return html(`<!doctype html><p>OAuth failed.</p><pre>${msg}</pre>`, 500);
   }
 
+  // IMPORTANT: replace the parent's hash with a CLEAN string (#access_token=...),
+  // no leftover fragments like "/%2F=" which break Decap parsing.
   const page = `<!doctype html><html><body>
 <script>
 (function(t){
   try {
+    var parentOrigin = ${JSON.stringify(SITE_URL)}; // exact origin, not wildcard
     if (window.opener) {
       var payload = JSON.stringify({ token: t });
 
-      // Broadcast multiple formats; various Decap builds listen for different ones
-      try { window.opener.postMessage("authorizing:github", "*"); } catch(e){}
-      try { window.opener.postMessage("authorization:github:" + payload, "*"); } catch(e){}
-      try { window.opener.postMessage("authorization:github:success:" + payload, "*"); } catch(e){}
-      try { window.opener.postMessage("authorization:github:success:" + t, "*"); } catch(e){}
+      // Send known formats to exact origin
+      try { window.opener.postMessage("authorizing:github", parentOrigin); } catch(e){}
+      try { window.opener.postMessage("authorization:github:" + payload, parentOrigin); } catch(e){}
+      try { window.opener.postMessage("authorization:github:success:" + payload, parentOrigin); } catch(e){}
+      try { window.opener.postMessage("authorization:github:success:" + t, parentOrigin); } catch(e){}
 
-      // Hash fallback: Decap can also read #access_token=...
+      // Hash fallback: hard REPLACE with a clean string Decap recognizes
       try {
-        var h = (window.opener.location.hash || "").replace(/^#*/, "");
-        var kv = new URLSearchParams(h);
-        kv.set("access_token", t);
-        window.opener.location.hash = kv.toString();
+        window.opener.location.replace(parentOrigin + "/admin/#access_token=" + encodeURIComponent(t));
       } catch(e){}
     } else {
-      // No opener → go back to admin with token in hash
-      try { window.location.href = "/admin#access_token=" + encodeURIComponent(t); return; } catch(e){}
+      // No opener → redirect this window directly to /admin with clean hash
+      try { window.location.replace("/admin/#access_token=" + encodeURIComponent(t)); return; } catch(e){}
     }
   } finally {
     setTimeout(function(){ try{ window.close(); } catch(e){ window.location.href = "/admin"; } }, 300);
@@ -77,9 +77,6 @@ export async function GET(req: Request) {
 </body></html>`;
 
   const res = html(page);
-  res.headers.append(
-    "set-cookie",
-    `decap_oauth_state=; Max-Age=0; Path=/; SameSite=Lax; ${SITE_URL.startsWith("https://") ? "Secure; " : ""}`
-  );
+  res.headers.append("set-cookie", `decap_oauth_state=; Max-Age=0; Path=/; SameSite=Lax; Secure;`);
   return res;
 }
