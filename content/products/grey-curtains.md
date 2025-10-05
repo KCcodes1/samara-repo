@@ -2,7 +2,8 @@
 title: Grey Curtains
 slug: grey-curtain
 price: 13000
-categories: []
+categories:
+  - curtains
 tags: []
 materials:
   - silk and cotton
