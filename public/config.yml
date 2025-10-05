@@ -80,7 +80,15 @@ collections:
         name: categories
         widget: list
         default: []
-        field: { name: category, widget: string }
+        field:
+          name: category
+          widget: select
+          options:
+            - { label: "Curtains", value: "curtains" }
+            - { label: "Furniture", value: "furniture" }
+            - { label: "Lighting", value: "lighting" }
+            - { label: "Decor", value: "decor" }
+            - { label: "Accessories", value: "accessories" }
       - label: Tags
         name: tags
         widget: list

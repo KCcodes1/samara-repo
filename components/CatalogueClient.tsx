@@ -126,48 +126,72 @@ export default function CatalogueClient({ products, categories }: CatalogueClien
     q?: string;
     sort?: string;
   }) => {
+    console.log("updateURL called with:", updates);
     const params = new URLSearchParams(searchParams);
     
     if (updates.q !== undefined) {
       if (updates.q) {
         params.set("q", updates.q);
+        console.log("Set q to:", updates.q);
       } else {
         params.delete("q");
+        console.log("Deleted q parameter");
       }
     }
     
     if (updates.cats !== undefined) {
       if (updates.cats.length > 0) {
         params.set("cat", updates.cats.join(","));
+        console.log("Set cat to:", updates.cats.join(","));
       } else {
         params.delete("cat");
+        console.log("Deleted cat parameter");
       }
     }
     
     if (updates.tags !== undefined) {
       if (updates.tags.length > 0) {
         params.set("tag", updates.tags.join(","));
+        console.log("Set tag to:", updates.tags.join(","));
       } else {
         params.delete("tag");
+        console.log("Deleted tag parameter");
       }
     }
     
     if (updates.sort !== undefined) {
       if (updates.sort !== "relevance") {
         params.set("sort", updates.sort);
+        console.log("Set sort to:", updates.sort);
       } else {
         params.delete("sort");
+        console.log("Deleted sort parameter");
       }
     }
 
     const newURL = params.toString() ? `?${params.toString()}` : "";
-    router.replace(newURL, { scroll: false });
+    console.log("New URL:", newURL);
+    // Navigate to the base catalogue path when clearing all filters
+    if (newURL === "") {
+      router.replace("/catalogue", { scroll: false });
+    } else {
+      router.replace(`/catalogue${newURL}`, { scroll: false });
+    }
   }, [searchParams, router]);
 
   // Clear all filters
   const clearAllFilters = useCallback(() => {
-    router.replace("", { scroll: false });
-  }, [router]);
+    console.log("Clearing all filters...");
+    console.log("Current filters:", { q, selectedCats, selectedTags, sort });
+    // Use the updateURL function to clear all parameters
+    updateURL({
+      q: "",
+      cats: [],
+      tags: [],
+      sort: "relevance"
+    });
+    console.log("Filters cleared - should show all products");
+  }, [updateURL, q, selectedCats, selectedTags, sort]);
 
   // Check if any filters are active
   const hasActiveFilters = q || selectedCats.length > 0 || selectedTags.length > 0 || sort !== "relevance";
@@ -251,8 +275,12 @@ export default function CatalogueClient({ products, categories }: CatalogueClien
               <div className="flex items-center justify-between mb-3">
                 <span className="text-sm font-medium text-gray-700">Active filters:</span>
                 <button
-                  onClick={clearAllFilters}
-                  className="text-sm text-brand hover:text-brand-dark underline"
+                  onClick={() => {
+                    console.log("Clear all button clicked (active filters)");
+                    clearAllFilters();
+                  }}
+                  className="text-sm text-brand hover:text-brand-dark underline cursor-pointer"
+                  type="button"
                 >
                   Clear all
                 </button>
@@ -320,8 +348,12 @@ export default function CatalogueClient({ products, categories }: CatalogueClien
                 </p>
                 {hasActiveFilters && (
                   <button
-                    onClick={clearAllFilters}
-                    className="inline-flex items-center px-4 py-2 bg-brand text-white rounded-xl hover:bg-brand-dark transition-colors"
+                    onClick={() => {
+                      console.log("Clear all button clicked (no results)");
+                      clearAllFilters();
+                    }}
+                    className="inline-flex items-center px-4 py-2 bg-brand text-white rounded-xl hover:bg-brand-dark transition-colors cursor-pointer"
+                    type="button"
                   >
                     Clear all filters
                   </button>

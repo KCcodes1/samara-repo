@@ -16,7 +16,8 @@
     "content:backup": "node scripts/backup-content.js create",
     "content:restore": "node scripts/backup-content.js restore",
     "content:list-backups": "node scripts/backup-content.js list",
-    "images:optimize": "node scripts/optimize-images.js"
+    "images:optimize": "node scripts/optimize-images.js",
+    "cms:sync": "node scripts/sync-cms.js"
   },
   "dependencies": {
     "class-variance-authority": "^0.7.1",

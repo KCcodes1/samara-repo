@@ -1,1 +1,3 @@
-{}
+{
+  "/(marketing)/catalogue/page": "app/(marketing)/catalogue/page.js"
+}
