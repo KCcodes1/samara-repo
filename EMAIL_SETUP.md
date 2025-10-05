@@ -16,7 +16,7 @@ SMTP_PASS=your-app-password
 SMTP_FROM_NAME=Samara H&H
 
 # Admin email to receive contact form notifications
-ADMIN_EMAIL=chetkuba@gmail.com
+ADMIN_EMAIL=your-admin-email@gmail.com
 ```
 
 ## Gmail Setup (Recommended)
@@ -39,7 +39,7 @@ SMTP_SECURE=false
 SMTP_USER=your-gmail@gmail.com
 SMTP_PASS=your-16-character-app-password
 SMTP_FROM_NAME=Samara H&H
-ADMIN_EMAIL=chetkuba@gmail.com
+ADMIN_EMAIL=your-admin-email@gmail.com
 ```
 
 ## Alternative Email Providers
