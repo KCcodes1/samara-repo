@@ -4,8 +4,10 @@ import { Container } from './Container';
 import { BrandLogo } from './BrandLogo';
 import { SocialIcons } from './SocialIcons';
 import { siteConfig } from '@/config/site';
+import { getContactInfo } from '@/lib/settings';
 
-export const Footer: React.FC = () => {
+export const Footer: React.FC = async () => {
+  const contactInfo = await getContactInfo();
   const currentYear = new Date().getFullYear();
 
   return (
@@ -29,11 +31,11 @@ export const Footer: React.FC = () => {
             <div className="col-span-1 md:col-span-2 lg:col-span-1">
               <BrandLogo className="text-surface-0 mb-4" />
               <p className="text-ink-400 max-w-md leading-relaxed">
-                Transform your space with {siteConfig.name} premium home décor and interior 
+                Transform your space with {contactInfo.companyName} premium home décor and interior 
                 fittings collection. Quality craftsmanship meets modern design.
               </p>
               <div className="mt-6">
-                <SocialIcons className="text-ink-400" size="sm" />
+                <SocialIcons socials={contactInfo.socials} className="text-ink-400" size="sm" />
               </div>
             </div>
 
@@ -60,24 +62,24 @@ export const Footer: React.FC = () => {
               <div className="space-y-3 text-ink-400">
                 <div>
                   <p className="font-medium text-surface-0 mb-1">Address</p>
-                  <p>{siteConfig.address}</p>
+                  <p>{contactInfo.address}</p>
                 </div>
                 <div>
                   <p className="font-medium text-surface-0 mb-1">Phone</p>
                   <a
-                    href={`tel:${siteConfig.phone}`}
+                    href={`tel:${contactInfo.phone}`}
                     className="hover:text-surface-0 transition-colors duration-200"
                   >
-                    {siteConfig.phone}
+                    {contactInfo.phone}
                   </a>
                 </div>
                 <div>
                   <p className="font-medium text-surface-0 mb-1">Email</p>
                   <a
-                    href={`mailto:${siteConfig.email}`}
+                    href={`mailto:${contactInfo.email}`}
                     className="hover:text-surface-0 transition-colors duration-200"
                   >
-                    {siteConfig.email}
+                    {contactInfo.email}
                   </a>
                 </div>
               </div>
@@ -89,7 +91,7 @@ export const Footer: React.FC = () => {
               <p className="text-ink-400 mb-4">
                 Stay updated with our latest designs and inspirations.
               </p>
-              <SocialIcons className="text-ink-400" size="md" />
+              <SocialIcons socials={contactInfo.socials} className="text-ink-400" size="md" />
             </div>
           </div>
 
@@ -97,7 +99,7 @@ export const Footer: React.FC = () => {
           <div className="border-t border-ink-700 mt-8 pt-8">
             <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
               <p className="text-ink-400 text-sm">
-                &copy; {currentYear} {siteConfig.name}. All rights reserved.
+                &copy; {currentYear} {contactInfo.companyName}. All rights reserved.
               </p>
               <div className="flex space-x-6 text-sm">
                 <Link

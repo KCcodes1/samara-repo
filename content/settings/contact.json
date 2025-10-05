@@ -1,23 +1,14 @@
 {
-<<<<<<< HEAD
   "companyName": "Samara H&H",
-  "address": "Nairobi, Kenya",
-  "phone": "+254 700 000000",
-  "email": "hello@example.com",
-  "whatsappNumber": "254700000000",
-  "whatsappMessage": "Hi! I'm interested in your home décor and fittings.",
+  "address": "Meru",
+  "phone": "+254711811405",
+  "email": "chetkuba@gmail.com",
+  "whatsappNumber": "+254711811405",
+  "whatsappMessage": "Hi. I would like to know more about the products you offer",
   "socials": {
     "instagram": "https://instagram.com/yourbrand",
     "pinterest": "https://pinterest.com/yourbrand",
     "tiktok": "https://tiktok.com/@yourbrand",
     "facebook": "https://facebook.com/yourbrand"
   }
-=======
-  "phone": "+254711811405",
-  "email": "chetkuba@gmail.com",
-  "whatsappNumber": "+254711811405",
-  "whatsappMessage": "Hi. I would like to know more about the products you offer",
-  "companyName": "Samara H&H",
-  "address": "Meru"
->>>>>>> 9b93cb4b18906b8b85125baf5da2c015e9ddd01b
 }
