@@ -1,8 +1,8 @@
 import { cookies } from "next/headers";
+import { getSiteUrl } from "@/lib/siteUrl";
 
 const GITHUB_CLIENT_ID = process.env.GITHUB_CLIENT_ID!;
 const GITHUB_CLIENT_SECRET = process.env.GITHUB_CLIENT_SECRET!;
-const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000").replace(/\/$/, "");
 
 function html(body: string, status = 200) {
   return new Response(body, { status, headers: { "content-type": "text/html; charset=utf-8" } });
@@ -24,13 +24,12 @@ export async function GET(req: Request) {
     return html("<p>Missing GitHub credentials</p>", 500);
   }
 
+  const SITE_URL = getSiteUrl();
+
   // Exchange code for token
   const tokenRes = await fetch("https://github.com/login/oauth/access_token", {
     method: "POST",
-    headers: {
-      Accept: "application/json",
-      "Content-Type": "application/json",
-    },
+    headers: { Accept: "application/json", "Content-Type": "application/json" },
     body: JSON.stringify({
       client_id: GITHUB_CLIENT_ID,
       client_secret: GITHUB_CLIENT_SECRET,
@@ -46,13 +45,14 @@ export async function GET(req: Request) {
     return html(`<!doctype html><p>OAuth failed.</p><pre>${msg}</pre>`, 500);
   }
 
-  // Clear state cookie
+  // Decap expects string messages:
+  //  - "authorizing:github"
+  //  - "authorization:github:success:<payload>"  (payload can be JSON with token)
   const page = `<!doctype html><html><body>
 <script>
 (function (t) {
   try {
     if (window.opener) {
-      // Decap's expected handshake + success message formats
       window.opener.postMessage("authorizing:github", "*");
       window.opener.postMessage("authorization:github:success:" + JSON.stringify({ token: t }), "*");
     } else {
@@ -70,6 +70,8 @@ export async function GET(req: Request) {
 </body></html>`;
 
   const res = html(page);
-  res.headers.set("set-cookie", "decap_oauth_state=; Max-Age=0; Path=/; SameSite=Lax");
+  // clear state cookie with matching attributes
+  const secure = SITE_URL.startsWith("https://");
+  res.headers.append("set-cookie", `decap_oauth_state=; Max-Age=0; Path=/; SameSite=Lax;${secure ? " Secure;" : ""}`);
   return res;
 }

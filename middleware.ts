@@ -4,7 +4,7 @@ import type { NextRequest } from "next/server";
 export function middleware(req: NextRequest) {
   const { pathname } = req.nextUrl;
 
-  // Allow CMS admin and OAuth endpoints to pass through
+  // Allow admin and OAuth paths through untouched
   if (
     pathname.startsWith("/admin") ||
     pathname.startsWith("/api/decap/auth") ||
@@ -13,12 +13,12 @@ export function middleware(req: NextRequest) {
     return NextResponse.next();
   }
 
-  // ... your existing logic ...
+  // ... your existing logic here ...
 
   return NextResponse.next();
 }
 
-// If you use a matcher, ensure it doesn't capture /admin or the api paths above
+// Ensure matcher doesn't unnecessarily capture static/CMS files
 export const config = {
   matcher: ["/((?!_next|static|favicon.ico|robots.txt|sitemap.xml).*)"],
 };
