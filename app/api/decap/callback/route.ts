@@ -1,11 +1,17 @@
 import { cookies } from "next/headers";
 import { getSiteUrl } from "@/lib/siteUrl";
 
+export const runtime = "nodejs";
+export const dynamic = "force-dynamic";
+
 const GITHUB_CLIENT_ID = process.env.GITHUB_CLIENT_ID!;
 const GITHUB_CLIENT_SECRET = process.env.GITHUB_CLIENT_SECRET!;
 
 function html(body: string, status = 200) {
-  return new Response(body, { status, headers: { "content-type": "text/html; charset=utf-8" } });
+  return new Response(body, {
+    status,
+    headers: { "content-type": "text/html; charset=utf-8", "Cache-Control": "no-store" },
+  });
 }
 
 export async function GET(req: Request) {
@@ -26,7 +32,7 @@ export async function GET(req: Request) {
 
   const SITE_URL = getSiteUrl();
 
-  // Exchange code for token
+  // Exchange code → token
   const tokenRes = await fetch("https://github.com/login/oauth/access_token", {
     method: "POST",
     headers: { Accept: "application/json", "Content-Type": "application/json" },
@@ -36,6 +42,7 @@ export async function GET(req: Request) {
       code,
       redirect_uri: `${SITE_URL}/api/decap/callback`,
     }),
+    // Don't forward cookies, not needed
   });
 
   const data = await tokenRes.json() as { access_token?: string; error?: string; error_description?: string };
@@ -45,32 +52,56 @@ export async function GET(req: Request) {
     return html(`<!doctype html><p>OAuth failed.</p><pre>${msg}</pre>`, 500);
   }
 
-  // Decap expects string messages:
-  //  - "authorizing:github"
-  //  - "authorization:github:success:<payload>"  (payload can be JSON with token)
-  const page = `<!doctype html><html><body>
+  // Handshake pattern: ask parent for origin, then reply to that origin.
+  const popup = `<!doctype html><html><body>
 <script>
 (function (t) {
-  try {
-    if (window.opener) {
-      window.opener.postMessage("authorizing:github", "*");
-      window.opener.postMessage("authorization:github:success:" + JSON.stringify({ token: t }), "*");
-    } else {
-      window.location.href = "/admin";
-      return;
-    }
-  } finally {
+  var acknowledged = false, parentOrigin = "*";
+
+  function onMessage(e) {
+    acknowledged = true;
+    parentOrigin = e.origin || "*";
+
+    // Canonical Decap messages
+    window.opener.postMessage("authorizing:github", parentOrigin);
+    window.opener.postMessage("authorization:github:success:" + JSON.stringify({ token: t }), parentOrigin);
+
+    // (Compat) also send without "success" for older listeners
+    window.opener.postMessage("authorization:github:" + JSON.stringify({ token: t }), parentOrigin);
+
+    window.removeEventListener("message", onMessage);
+    setTimeout(closeOrRedirect, 150);
+  }
+
+  function closeOrRedirect() {
+    try { window.close(); } catch (e) { window.location.href = "/admin"; }
+  }
+
+  if (window.opener) {
+    // Request a ping from parent so we get a concrete origin to respond to
+    window.addEventListener("message", onMessage, false);
+    try { window.opener.postMessage("authorizing:github", "*"); } catch (e) {}
+
+    // Fallback: if parent never responds, still try to deliver token
     setTimeout(function () {
-      try { window.close(); } catch (e) { window.location.href = "/admin"; }
-    }, 500);
+      if (!acknowledged) {
+        try {
+          window.opener.postMessage("authorization:github:success:" + JSON.stringify({ token: t }), "*");
+          window.opener.postMessage("authorization:github:" + JSON.stringify({ token: t }), "*");
+        } catch (e) {}
+        closeOrRedirect();
+      }
+    }, 1200);
+  } else {
+    // No opener? go back to admin
+    window.location.href = "/admin";
   }
 })(${JSON.stringify(token)});
 </script>
-<p>Authentication successful. You can close this window.</p>
+<p>Authentication complete. You can close this window.</p>
 </body></html>`;
 
-  const res = html(page);
-  // clear state cookie with matching attributes
+  const res = html(popup);
   const secure = SITE_URL.startsWith("https://");
   res.headers.append("set-cookie", `decap_oauth_state=; Max-Age=0; Path=/; SameSite=Lax;${secure ? " Secure;" : ""}`);
   return res;

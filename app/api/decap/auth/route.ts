@@ -1,6 +1,9 @@
 import { cookies } from "next/headers";
 import { getSiteUrl } from "@/lib/siteUrl";
 
+export const runtime = "nodejs";
+export const dynamic = "force-dynamic";
+
 const GITHUB_CLIENT_ID = process.env.GITHUB_CLIENT_ID!;
 
 function randomState(len = 24) {
@@ -11,9 +14,7 @@ function randomState(len = 24) {
 }
 
 export async function GET() {
-  if (!GITHUB_CLIENT_ID) {
-    return new Response("Missing GITHUB_CLIENT_ID", { status: 500 });
-  }
+  if (!GITHUB_CLIENT_ID) return new Response("Missing GITHUB_CLIENT_ID", { status: 500 });
 
   const SITE_URL = getSiteUrl();
   const state = randomState();
@@ -22,18 +23,24 @@ export async function GET() {
   cookieStore.set("decap_oauth_state", state, {
     httpOnly: true,
     sameSite: "lax",
-    secure: SITE_URL.startsWith("https://"), // secure in prod
+    secure: SITE_URL.startsWith("https://"),
     path: "/",
-    maxAge: 10 * 60, // 10min
+    maxAge: 10 * 60,
   });
 
   const params = new URLSearchParams({
     client_id: GITHUB_CLIENT_ID,
-    scope: "repo", // or "public_repo" if only public repos
+    scope: "repo", // or "public_repo"
     state,
     redirect_uri: `${SITE_URL}/api/decap/callback`,
     allow_signup: "true",
   });
 
-  return Response.redirect(`https://github.com/login/oauth/authorize?${params.toString()}`, 302);
+  return new Response(null, {
+    status: 302,
+    headers: {
+      Location: `https://github.com/login/oauth/authorize?${params.toString()}`,
+      "Cache-Control": "no-store",
+    },
+  });
 }
