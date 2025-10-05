@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image';
 import { Container } from '@/components/Container';
 import { Section } from '@/components/Section';
 import { Button } from '@/components/Button';
@@ -71,10 +72,12 @@ export default async function HomePage() {
             <div className="flex justify-center lg:justify-end">
               <div className="relative w-full max-w-lg h-96 lg:h-[500px] rounded-2xl overflow-hidden">
                 {home?.frontmatter.heroImage ? (
-                  <img
+                  <Image
                     src={home.frontmatter.heroImage}
                     alt="Hero image"
-                    className="w-full h-full object-cover"
+                    fill
+                    sizes="(min-width: 1024px) 50vw, 100vw"
+                    className="object-cover"
                   />
                 ) : (
                   <div className="w-full h-full bg-gradient-to-br from-brand-soft via-surface-100 to-accent-50 flex items-center justify-center relative">

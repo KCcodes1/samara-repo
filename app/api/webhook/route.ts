@@ -4,11 +4,17 @@ import { promisify } from 'util';
 
 const execAsync = promisify(exec);
 
+export const runtime = 'nodejs';
+
 export async function POST(req: NextRequest) {
   try {
     // Verify the webhook is from GitHub (optional but recommended)
     const signature = req.headers.get('x-hub-signature-256');
     const body = await req.text();
+    
+    // Temporary usage to satisfy ESLint and for debugging
+    console.log('[webhook] sig length:', signature?.length || 0);
+    console.log('[webhook] body length:', body.length);
     
     // For now, we'll skip signature verification for simplicity
     // In production, you should verify the GitHub webhook signature

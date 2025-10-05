@@ -1,5 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import type { ProductFrontmatter } from '@/types/content';
 
 interface ProductListItemProps {
@@ -14,12 +15,14 @@ export default function ProductListItem({ p }: ProductListItemProps): JSX.Elemen
       href={`/catalogue/${p.slug}`}
       className="group block bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow duration-200 border border-gray-100 overflow-hidden"
     >
-      <div className="aspect-w-16 aspect-h-12 bg-gray-100">
+      <div className="aspect-w-16 aspect-h-12 bg-gray-100 relative">
         {firstImage ? (
-          <img
+          <Image
             src={firstImage}
             alt={p.title}
-            className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-200"
+            fill
+            sizes="(min-width: 768px) 33vw, 100vw"
+            className="object-cover group-hover:scale-105 transition-transform duration-200"
           />
         ) : (
           <div className="w-full h-48 bg-gradient-to-br from-gray-100 to-gray-200 flex items-center justify-center">

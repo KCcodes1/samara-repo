@@ -3,6 +3,10 @@ const nextConfig = {
   experimental: {
     optimizePackageImports: ['react', 'next', 'lucide-react'],
   },
+  eslint: {
+    // Set to false to ensure builds fail on ESLint errors (better for production)
+    ignoreDuringBuilds: false
+  },
   // Disable Next.js built-in CSP for admin routes
   async headers() {
     return [
