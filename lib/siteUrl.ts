@@ -4,6 +4,6 @@ export function getSiteUrl() {
       process.env.SITE_URL ||
       (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : '')).trim();
 
-  const url = raw || 'https://samarahomes.co.ke'; // production-safe fallback
+  const url = raw || 'https://www.samarahomes.co.ke'; // production-safe fallback
   return url.replace(/\/$/, '');
 }

@@ -2,7 +2,7 @@ backend:
   name: github
   repo: KCcodes1/samara-repo
   branch: main
-  base_url: https://samarahomes.co.ke  # Replace with your actual production domain
+  base_url: https://www.samarahomes.co.ke  # Replace with your actual production domain
   auth_endpoint: /api/decap/auth
 
 publish_mode: editorial_workflow
