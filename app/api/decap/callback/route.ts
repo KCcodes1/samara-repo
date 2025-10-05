@@ -44,30 +44,42 @@ export async function GET(req: Request) {
     return html(`<!doctype html><p>OAuth failed.</p><pre>${msg}</pre>`, 500);
   }
 
-  // IMPORTANT: replace the parent's hash with a CLEAN string (#access_token=...),
-  // no leftover fragments like "/%2F=" which break Decap parsing.
+  // Force-store token in localStorage (works across same-origin windows)
+  // Use both legacy and current keys, with a shape modern Decap accepts.
   const page = `<!doctype html><html><body>
 <script>
 (function(t){
   try {
-    var parentOrigin = ${JSON.stringify(SITE_URL)}; // exact origin, not wildcard
-    if (window.opener) {
-      var payload = JSON.stringify({ token: t });
+    var parentOrigin = ${JSON.stringify(SITE_URL)}; // exact origin
+    var userObj = {
+      token: t,
+      provider: "github",
+      backendName: "github",
+      // some builds expect nested auth, include for safety
+      auth: { token: t }
+    };
 
-      // Send known formats to exact origin
-      try { window.opener.postMessage("authorizing:github", parentOrigin); } catch(e){}
-      try { window.opener.postMessage("authorization:github:" + payload, parentOrigin); } catch(e){}
-      try { window.opener.postMessage("authorization:github:success:" + payload, parentOrigin); } catch(e){}
-      try { window.opener.postMessage("authorization:github:success:" + t, parentOrigin); } catch(e){}
+    // 1) Write to localStorage (shared for same-origin windows)
+    try { localStorage.setItem("netlify-cms-user", JSON.stringify(userObj)); } catch(e){}
+    try { localStorage.setItem("decap-cms-user", JSON.stringify(userObj)); } catch(e){}
 
-      // Hash fallback: hard REPLACE with a clean string Decap recognizes
-      try {
+    // 2) Best-effort postMessage in multiple formats (some builds still listen)
+    try { if (window.opener) window.opener.postMessage("authorizing:github", parentOrigin); } catch(e){}
+    try { if (window.opener) window.opener.postMessage("authorization:github:" + JSON.stringify({ token: t }), parentOrigin); } catch(e){}
+    try { if (window.opener) window.opener.postMessage("authorization:github:success:" + JSON.stringify({ token: t }), parentOrigin); } catch(e){}
+    try { if (window.opener) window.opener.postMessage("authorization:github:success:" + t, parentOrigin); } catch(e){}
+
+    // 3) Clean-hash fallback (Decap can parse #access_token=...)
+    // We REPLACE the entire URL (no stray "%2F=" fragments)
+    try {
+      if (window.opener) {
         window.opener.location.replace(parentOrigin + "/admin/#access_token=" + encodeURIComponent(t));
-      } catch(e){}
-    } else {
-      // No opener → redirect this window directly to /admin with clean hash
-      try { window.location.replace("/admin/#access_token=" + encodeURIComponent(t)); return; } catch(e){}
-    }
+      } else {
+        window.location.replace("/admin/#access_token=" + encodeURIComponent(t));
+        return;
+      }
+    } catch(e){}
+
   } finally {
     setTimeout(function(){ try{ window.close(); } catch(e){ window.location.href = "/admin"; } }, 300);
   }
