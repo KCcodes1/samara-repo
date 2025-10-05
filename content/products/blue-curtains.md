@@ -6,8 +6,9 @@ categories: []
 tags: []
 materials:
   - Silk
-images: []
-featured: false
+images:
+  - /uploads/curtain-blue.jpg
+featured: true
 description: Beautiful Blue Silk Curtains
 ---
 High quality beautiful blue curtains to enrich your home and blend with high end interior designs for any room.
