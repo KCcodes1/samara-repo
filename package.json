@@ -20,9 +20,12 @@
     "cms:sync": "node scripts/sync-cms.js"
   },
   "dependencies": {
+    "@types/nodemailer": "^7.0.2",
     "class-variance-authority": "^0.7.1",
     "gray-matter": "^4.0.3",
     "next": "14.2.5",
+    "node-fetch": "^2.7.0",
+    "nodemailer": "^7.0.6",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "remark": "^15.0.1",

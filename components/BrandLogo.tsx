@@ -22,7 +22,7 @@ export const BrandLogo: React.FC<BrandLogoProps> = ({ className = '' }) => {
         />
         <circle cx="22" cy="10" r="3" fill="white" />
       </svg>
-      <span className="text-xl font-bold text-gray-900">Samara H&H</span>
+      <span className="text-xl font-bold text-current">Samara H&H</span>
     </div>
   );
 };
