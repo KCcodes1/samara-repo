@@ -62,6 +62,28 @@ collections:
               - { name: "title", widget: string }
               - { name: "slug", widget: string }
 
+  - name: "settings"
+    label: "Site Settings"
+    files:
+      - label: "Contact Information"
+        name: "contact_info"
+        file: "content/settings/contact.json"
+        fields:
+          - { name: "companyName", widget: string, label: "Company Name" }
+          - { name: "address", widget: string, label: "Address" }
+          - { name: "phone", widget: string, label: "Phone Number" }
+          - { name: "email", widget: string, label: "Email Address" }
+          - { name: "whatsappNumber", widget: string, label: "WhatsApp Number" }
+          - { name: "whatsappMessage", widget: text, label: "Default WhatsApp Message" }
+          - label: "Social Media"
+            name: "socials"
+            widget: object
+            fields:
+              - { name: "instagram", widget: string, label: "Instagram URL", required: false }
+              - { name: "pinterest", widget: string, label: "Pinterest URL", required: false }
+              - { name: "tiktok", widget: string, label: "TikTok URL", required: false }
+              - { name: "facebook", widget: string, label: "Facebook URL", required: false }
+
   - name: "products"
     label: "Products"
     folder: "content/products"

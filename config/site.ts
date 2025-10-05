@@ -1,4 +1,5 @@
-export const siteConfig = {
+// Default configuration - will be overridden by CMS data in components
+export const defaultSiteConfig = {
   name: "Samara H&H",
   tagline: "Home décor & interior fittings",
   url: "https://example.com",
@@ -21,5 +22,8 @@ export const siteConfig = {
   ],
   whatsappCtaDefault: "Hi! I'm interested in your home décor and fittings.",
 } as const;
+
+// For backward compatibility, export as siteConfig
+export const siteConfig = defaultSiteConfig;
 
 export type SiteConfig = typeof siteConfig;
