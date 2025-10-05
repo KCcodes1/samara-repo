@@ -25,7 +25,7 @@ SMTP_PASS=your-app-password
 SMTP_FROM_NAME=Samara H&H
 
 # Admin email to receive contact form notifications
-ADMIN_EMAIL=chetkuba@gmail.com
+ADMIN_EMAIL=your-admin-email@gmail.com
 `;
 
 console.log('📋 Required Environment Variables:');

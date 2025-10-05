@@ -11,13 +11,13 @@ SMTP_HOST=smtp.gmail.com
 SMTP_PORT=587
 SMTP_SECURE=false           # true only if using port 465
 SMTP_REQUIRE_TLS=true
-SMTP_USER=samarahnh@gmail.com
+SMTP_USER=your-email@gmail.com
 SMTP_PASS=<YOUR_16_CHAR_GMAIL_APP_PASSWORD_NO_SPACES>
 SMTP_FROM_NAME=Samara H&H
-SMTP_FROM_EMAIL=samarahnh@gmail.com
+SMTP_FROM_EMAIL=your-email@gmail.com
 
 # Admin destination
-ADMIN_EMAIL=chetkuba@gmail.com
+ADMIN_EMAIL=your-admin-email@gmail.com
 `;
 
 const envPath = path.join(__dirname, '.env.local');
