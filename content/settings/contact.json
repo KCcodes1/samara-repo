@@ -1,4 +1,5 @@
 {
+<<<<<<< HEAD
   "companyName": "Samara H&H",
   "address": "Nairobi, Kenya",
   "phone": "+254 700 000000",
@@ -11,4 +12,12 @@
     "tiktok": "https://tiktok.com/@yourbrand",
     "facebook": "https://facebook.com/yourbrand"
   }
+=======
+  "phone": "+254711811405",
+  "email": "chetkuba@gmail.com",
+  "whatsappNumber": "+254711811405",
+  "whatsappMessage": "Hi. I would like to know more about the products you offer",
+  "companyName": "Samara H&H",
+  "address": "Meru"
+>>>>>>> 9b93cb4b18906b8b85125baf5da2c015e9ddd01b
 }
