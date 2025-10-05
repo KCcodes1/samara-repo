@@ -1,0 +1,168 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+  
+  body {
+    @apply text-ink-700 bg-surface-0;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply tracking-tight;
+  }
+  
+  a {
+    @apply underline-offset-4 hover:underline focus:outline-none focus:ring-2 focus:ring-brand focus:ring-offset-2;
+  }
+}
+
+@layer components {
+  /* Prose typography styles */
+  .prose {
+    @apply text-gray-900 leading-relaxed;
+  }
+  
+  /* Prose basic - clean typography without @tailwind/typography */
+  .prose-basic {
+    @apply max-w-none text-ink-700 leading-relaxed;
+  }
+  
+  .prose-basic h1 {
+    @apply text-3xl md:text-4xl font-bold mb-6 text-ink-900;
+  }
+  
+  .prose-basic h2 {
+    @apply text-2xl md:text-3xl font-bold mb-4 text-ink-900;
+  }
+  
+  .prose-basic h3 {
+    @apply text-xl md:text-2xl font-semibold mb-3 text-ink-900;
+  }
+  
+  .prose-basic p {
+    @apply mb-4 text-ink-700 leading-relaxed;
+  }
+  
+  .prose-basic a {
+    @apply text-brand hover:text-brand-fg underline transition-colors;
+  }
+  
+  .prose-basic ul {
+    @apply mb-4 pl-6 list-disc;
+  }
+  
+  .prose-basic ol {
+    @apply mb-4 pl-6 list-decimal;
+  }
+  
+  .prose-basic li {
+    @apply mb-2 text-ink-700;
+  }
+  
+  .prose-basic strong {
+    @apply font-semibold text-ink-900;
+  }
+  
+  .prose-basic em {
+    @apply italic text-ink-700;
+  }
+  
+  /* Elevated card utility */
+  .elevated {
+    @apply rounded-xl shadow-card bg-surface-0;
+  }
+  
+  /* Soft section background */
+  .soft-section {
+    @apply bg-surface-50;
+  }
+  
+  /* Muted text */
+  .muted {
+    @apply text-ink-400;
+  }
+  
+  /* Eyebrow text */
+  .eyebrow {
+    @apply tracking-wide uppercase text-sm text-brand-fg;
+  }
+  
+  /* Hover raise effect */
+  .hover-raise {
+    @apply transition-transform duration-200 hover:-translate-y-0.5 hover:shadow-card;
+  }
+  
+  .prose h1 {
+    @apply text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-gray-900;
+  }
+  
+  .prose h2 {
+    @apply text-2xl md:text-3xl font-bold mb-4 text-gray-900;
+  }
+  
+  .prose h3 {
+    @apply text-xl md:text-2xl font-semibold mb-3 text-gray-900;
+  }
+  
+  .prose p {
+    @apply mb-4 text-gray-600 leading-relaxed;
+  }
+  
+  .prose a {
+    @apply text-primary hover:text-primary-600 underline transition-colors;
+  }
+  
+  .prose ul {
+    @apply mb-4 pl-6;
+  }
+  
+  .prose ol {
+    @apply mb-4 pl-6;
+  }
+  
+  .prose li {
+    @apply mb-2 text-gray-600;
+  }
+  
+  .prose strong {
+    @apply font-semibold text-gray-900;
+  }
+  
+  .prose em {
+    @apply italic text-gray-700;
+  }
+  
+  .text-muted {
+    @apply text-gray-500;
+  }
+  
+  /* Card utility class */
+  .card {
+    @apply bg-white rounded-xl shadow-soft-xl overflow-hidden;
+  }
+  
+  /* Legacy button styles for backward compatibility */
+  .btn-primary {
+    @apply bg-primary hover:bg-primary-600 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-200 shadow-soft hover:shadow-soft-xl;
+  }
+  
+  .btn-secondary {
+    @apply bg-white hover:bg-muted text-primary font-semibold py-3 px-6 rounded-lg border border-primary-200 transition-all duration-200 shadow-soft hover:shadow-soft-xl;
+  }
+  
+  .btn-accent {
+    @apply bg-accent hover:bg-accent-600 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-200 shadow-soft hover:shadow-soft-xl;
+  }
+  
+  .gradient-bg {
+    @apply bg-gradient-to-br from-primary-50 via-white to-accent-50;
+  }
+  
+  .gradient-text {
+    @apply text-transparent bg-clip-text bg-gradient-to-r from-primary-600 to-accent-600;
+  }
+}

@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="robots" content="noindex"/>
+    <title>Content Admin</title>
+    <!-- Temporary CSP override for debugging -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' blob: data:; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://unpkg.com https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://unpkg.com https://cdn.jsdelivr.net; img-src 'self' data: blob: https:; font-src 'self' data: https:; connect-src 'self' https://api.github.com https://github.com https://unpkg.com https://cdn.jsdelivr.net blob: data: http://localhost:3000 ws://localhost:3000; frame-src 'self' https://github.com; worker-src 'self' blob:; child-src 'self' blob:; object-src 'none'; base-uri 'self'; form-action 'self';">
+  </head>
+  <body>
+    <!-- Decap SPA (official CDN build) -->
+    <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+    <script>
+      // OAuth communication handler
+      window.addEventListener('message', function(event) {
+        console.log('Admin page received message:', event.data);
+        
+        if (event.data && event.data.type === 'oauth_callback') {
+          console.log('OAuth callback received, sending acknowledgment...');
+          // Send acknowledgment back to popup
+          event.source.postMessage({ type: 'oauth_ready' }, '*');
+        }
+        
+        if (event.data && event.data.token) {
+          console.log('Token received:', event.data.token.substring(0, 20) + '...');
+          // Handle the token - Decap CMS should automatically process it
+        }
+      });
+      
+      // Debug CSP issues
+      window.addEventListener('error', function(e) {
+        console.error('Script error:', e);
+        if (e.message && e.message.includes('CSP')) {
+          console.error('CSP Error detected:', e.message);
+        }
+      });
+      
+      // Initialize CMS when page loads
+      window.addEventListener('load', function() {
+        console.log('Page loaded, initializing Decap CMS...');
+        
+        // Wait for CMS to be available
+        const initCMS = () => {
+          if (window.CMS) {
+            console.log('Decap CMS loaded successfully');
+            // CMS will auto-initialize with the config.yml file
+          } else {
+            console.log('Waiting for Decap CMS to load...');
+            setTimeout(initCMS, 100);
+          }
+        };
+        
+        setTimeout(initCMS, 100);
+      });
+    </script>
+  </body>
+</html>

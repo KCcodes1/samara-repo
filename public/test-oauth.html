@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <title>OAuth Test Page</title>
+    <style>
+      body { font-family: Arial, sans-serif; margin: 40px; }
+      .section { margin: 20px 0; padding: 20px; border: 1px solid #ddd; }
+      .success { background-color: #d4edda; border-color: #c3e6cb; }
+      .error { background-color: #f8d7da; border-color: #f5c6cb; }
+      .info { background-color: #d1ecf1; border-color: #bee5eb; }
+      button { padding: 10px 20px; margin: 10px; font-size: 16px; }
+      pre { background: #f8f9fa; padding: 10px; overflow-x: auto; }
+    </style>
+  </head>
+  <body>
+    <h1>OAuth Test Page</h1>
+    
+    <div class="section info">
+      <h2>OAuth Flow Test</h2>
+      <p>This page tests the GitHub OAuth flow step by step.</p>
+      <button onclick="testOAuthFlow()">Start OAuth Flow</button>
+      <div id="oauth-status">Ready to test...</div>
+    </div>
+    
+    <div class="section">
+      <h2>Console Logs</h2>
+      <p>Check browser console for detailed logs</p>
+      <button onclick="clearLogs()">Clear Console</button>
+    </div>
+
+    <script>
+      let oauthPopup = null;
+      
+      // OAuth communication handler
+      window.addEventListener('message', function(event) {
+        console.log('Test page received message:', event.data);
+        
+        if (event.data && event.data.type === 'oauth_callback') {
+          console.log('OAuth callback received, sending acknowledgment...');
+          // Send acknowledgment back to popup
+          event.source.postMessage({ type: 'oauth_ready' }, '*');
+        }
+        
+        if (event.data && event.data.token) {
+          console.log('Token received:', event.data.token.substring(0, 20) + '...');
+          document.getElementById('oauth-status').innerHTML = 
+            '<div class="success">✅ OAuth successful! Token received: ' + 
+            event.data.token.substring(0, 20) + '...</div>';
+        }
+      });
+      
+      function testOAuthFlow() {
+        const statusDiv = document.getElementById('oauth-status');
+        statusDiv.innerHTML = '<div class="info">Opening OAuth popup...</div>';
+        
+        console.log('Starting OAuth flow...');
+        oauthPopup = window.open('/api/decap/auth', 'oauth', 'width=600,height=600');
+        
+        if (!oauthPopup) {
+          statusDiv.innerHTML = '<div class="error">❌ Popup blocked! Please allow popups for this site.</div>';
+          return;
+        }
+        
+        // Check if popup was closed manually
+        const checkClosed = setInterval(() => {
+          if (oauthPopup.closed) {
+            clearInterval(checkClosed);
+            if (!statusDiv.innerHTML.includes('successful')) {
+              statusDiv.innerHTML = '<div class="error">❌ OAuth popup was closed without completing authentication</div>';
+            }
+          }
+        }, 1000);
+      }
+      
+      function clearLogs() {
+        console.clear();
+        console.log('Console cleared');
+      }
+    </script>
+  </body>
+</html>

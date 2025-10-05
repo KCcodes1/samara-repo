@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <title>OAuth Debug Page</title>
+    <style>
+      body { font-family: Arial, sans-serif; margin: 40px; }
+      .section { margin: 20px 0; padding: 20px; border: 1px solid #ddd; }
+      .success { background-color: #d4edda; border-color: #c3e6cb; }
+      .error { background-color: #f8d7da; border-color: #f5c6cb; }
+      .info { background-color: #d1ecf1; border-color: #bee5eb; }
+      button { padding: 10px 20px; margin: 10px; font-size: 16px; }
+      pre { background: #f8f9fa; padding: 10px; overflow-x: auto; }
+    </style>
+  </head>
+  <body>
+    <h1>OAuth Debug Page</h1>
+    
+    <div class="section info">
+      <h2>Environment Check</h2>
+      <p>Checking if environment variables are properly configured...</p>
+      <div id="env-status">Loading...</div>
+    </div>
+    
+    <div class="section">
+      <h2>OAuth Test</h2>
+      <p>Test the GitHub OAuth flow:</p>
+      <button onclick="testOAuth()">Test OAuth Flow</button>
+      <div id="oauth-result"></div>
+    </div>
+    
+    <div class="section">
+      <h2>Config Test</h2>
+      <p>Test the dynamic configuration endpoint:</p>
+      <button onclick="testConfig()">Test Config Endpoint</button>
+      <div id="config-result"></div>
+    </div>
+    
+    <div class="section">
+      <h2>Console Logs</h2>
+      <p>Check browser console for detailed logs</p>
+      <button onclick="clearLogs()">Clear Console</button>
+    </div>
+
+    <script>
+      // Check environment variables
+      async function checkEnvironment() {
+        try {
+          const response = await fetch('/api/decap/auth');
+          if (response.ok) {
+            document.getElementById('env-status').innerHTML = 
+              '<div class="success">✅ OAuth endpoint is accessible</div>';
+          } else {
+            const text = await response.text();
+            document.getElementById('env-status').innerHTML = 
+              `<div class="error">❌ OAuth endpoint error: ${text}</div>`;
+          }
+        } catch (error) {
+          document.getElementById('env-status').innerHTML = 
+            `<div class="error">❌ Failed to reach OAuth endpoint: ${error.message}</div>`;
+        }
+      }
+      
+      // Test OAuth flow
+      function testOAuth() {
+        const resultDiv = document.getElementById('oauth-result');
+        resultDiv.innerHTML = '<div class="info">Opening OAuth popup...</div>';
+        
+        const popup = window.open('/api/decap/auth', 'oauth', 'width=600,height=600');
+        
+        // Listen for messages from the popup
+        window.addEventListener('message', function(event) {
+          console.log('Received message:', event.data);
+          if (event.data && event.data.token) {
+            resultDiv.innerHTML = 
+              '<div class="success">✅ OAuth successful! Token received: ' + 
+              event.data.token.substring(0, 20) + '...</div>';
+            popup.close();
+          }
+        });
+        
+        // Check if popup was closed manually
+        const checkClosed = setInterval(() => {
+          if (popup.closed) {
+            clearInterval(checkClosed);
+            if (!resultDiv.innerHTML.includes('successful')) {
+              resultDiv.innerHTML = 
+                '<div class="error">❌ OAuth popup was closed without completing authentication</div>';
+            }
+          }
+        }, 1000);
+      }
+      
+      // Test config endpoint
+      async function testConfig() {
+        const resultDiv = document.getElementById('config-result');
+        resultDiv.innerHTML = '<div class="info">Testing config endpoint...</div>';
+        
+        try {
+          const response = await fetch('/api/decap/config');
+          const config = await response.json();
+          
+          resultDiv.innerHTML = 
+            '<div class="success">✅ Config endpoint working</div>' +
+            '<pre>' + JSON.stringify(config, null, 2) + '</pre>';
+        } catch (error) {
+          resultDiv.innerHTML = 
+            `<div class="error">❌ Config endpoint error: ${error.message}</div>`;
+        }
+      }
+      
+      // Clear console logs
+      function clearLogs() {
+        console.clear();
+        console.log('Console cleared');
+      }
+      
+      // Initialize
+      checkEnvironment();
+      
+      // Log all messages for debugging
+      window.addEventListener('message', function(event) {
+        console.log('Debug page received message:', event.data);
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,19 @@
+backend:
+  name: test-repo
+
+media_folder: "public/uploads"
+public_folder: "/uploads"
+
+publish_mode: simple
+
+collections:
+  - name: "test"
+    label: "Test Collection"
+    folder: "content/test"
+    create: true
+    slug: "{{slug}}"
+    extension: "md"
+    fields:
+      - { name: title, widget: string }
+      - { name: body, widget: markdown }
+

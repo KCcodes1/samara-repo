@@ -1,0 +1,129 @@
+backend:
+  name: github
+  repo: KCcodes1/samara-repo
+  branch: main
+  base_url: http://localhost:3000
+  auth_endpoint: /api/decap/auth
+
+publish_mode: editorial_workflow
+
+media_folder: "public/uploads"
+public_folder: "/uploads"
+
+collections:
+  - name: "pages"
+    label: "Pages"
+    files:
+      - label: "Home"
+        name: "home"
+        file: "content/pages/home.md"
+        fields:
+          - { name: title, widget: string }
+          - { name: slug, widget: string, default: "home" }
+          - { name: heroTitle, widget: string, required: false }
+          - { name: heroSubtitle, widget: string, required: false }
+          - { name: heroImage, widget: image, required: false }
+          - { name: description, widget: text, required: false }
+          - { name: body, widget: markdown, required: false }
+      - label: "About"
+        name: "about"
+        file: "content/pages/about.md"
+        fields:
+          - { name: title, widget: string }
+          - { name: slug, widget: string, default: "about" }
+          - { name: heroTitle, widget: string, required: false }
+          - { name: heroSubtitle, widget: string, required: false }
+          - { name: heroImage, widget: image, required: false }
+          - { name: description, widget: text, required: false }
+          - { name: body, widget: markdown, required: false }
+      - label: "Services"
+        name: "services"
+        file: "content/pages/services.md"
+        fields:
+          - { name: title, widget: string }
+          - { name: slug, widget: string, default: "services" }
+          - { name: heroTitle, widget: string, required: false }
+          - { name: heroSubtitle, widget: string, required: false }
+          - { name: heroImage, widget: image, required: false }
+          - { name: description, widget: text, required: false }
+          - { name: body, widget: markdown, required: false }
+
+  - name: "categories"
+    label: "Categories"
+    files:
+      - label: "Categories List"
+        name: "categories_list"
+        file: "content/categories/categories.json"
+        fields:
+          - label: "Categories"
+            name: "categories"
+            widget: list
+            fields:
+              - { name: "title", widget: string }
+              - { name: "slug", widget: string }
+
+  - name: "products"
+    label: "Products"
+    folder: "content/products"
+    create: true
+    slug: "{{slug}}"
+    extension: "md"
+    summary: "{{title}} | KES {{price}}"
+    fields:
+      - { name: title, widget: string }
+      - { name: slug, widget: string }
+      - { name: price, widget: number, value_type: float, required: false }
+      - { name: sku, widget: string, required: false }
+      - label: Categories
+        name: categories
+        widget: list
+        default: []
+        field: { name: category, widget: string }
+      - label: Tags
+        name: tags
+        widget: list
+        default: []
+        field: { name: tag, widget: string }
+      - label: Dimensions
+        name: dimensions
+        widget: object
+        required: false
+        fields:
+          - { name: width, widget: number, value_type: float, required: false }
+          - { name: height, widget: number, value_type: float, required: false }
+          - { name: depth, widget: number, value_type: float, required: false }
+      - label: Materials
+        name: materials
+        widget: list
+        default: []
+        field: { name: material, widget: string }
+      - label: Images
+        name: images
+        widget: list
+        default: []
+        field: { name: image, widget: image }
+      - { name: featured, widget: boolean, default: false }
+      - { name: description, widget: text, required: false }
+      - { name: date, widget: datetime, time_format: false, required: false }
+      - { name: body, widget: markdown, required: false }
+
+  - name: "projects"
+    label: "Projects"
+    folder: "content/projects"
+    create: true
+    slug: "{{slug}}"
+    extension: "md"
+    summary: "{{title}} — {{location}}"
+    fields:
+      - { name: title, widget: string }
+      - { name: slug, widget: string }
+      - { name: cover, widget: image, required: false }
+      - label: Gallery
+        name: gallery
+        widget: list
+        default: []
+        field: { name: image, widget: image }
+      - { name: location, widget: string, required: false }
+      - { name: style, widget: string, required: false }
+      - { name: date, widget: datetime, time_format: false, required: false }
+      - { name: body, widget: markdown, required: false }
