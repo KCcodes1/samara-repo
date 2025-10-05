@@ -4,10 +4,13 @@ import { Container } from './Container';
 import { BrandLogo } from './BrandLogo';
 import { SocialIcons } from './SocialIcons';
 import { siteConfig } from '@/config/site';
-import { getContactInfo } from '@/lib/settings';
+import { ContactInfo } from '@/lib/settings';
 
-export const Footer: React.FC = async () => {
-  const contactInfo = await getContactInfo();
+interface FooterProps {
+  contactInfo: ContactInfo;
+}
+
+export const Footer: React.FC<FooterProps> = ({ contactInfo }) => {
   const currentYear = new Date().getFullYear();
 
   return (

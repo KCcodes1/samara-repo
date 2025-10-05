@@ -7,6 +7,7 @@ import { siteConfig } from '@/config/site';
 import { getPage } from '@/lib/pages';
 import { getAllProducts } from '@/lib/products';
 import { getAllProjects } from '@/lib/projects';
+import { getContactInfo } from '@/lib/settings';
 import ProductCard from '@/components/cards/ProductCard';
 import ProjectCard from '@/components/cards/ProjectCard';
 
@@ -15,7 +16,8 @@ export default async function HomePage() {
   const home = await getPage("home").catch(() => null);
   const products = await getAllProducts().catch(() => []);
   const projects = await getAllProjects().catch(() => []);
-  const whatsappUrl = `https://wa.me/254700000000?text=${encodeURIComponent(siteConfig.whatsappCtaDefault)}`;
+  const contactInfo = await getContactInfo();
+  const whatsappUrl = `https://wa.me/${contactInfo.whatsappNumber}?text=${encodeURIComponent(contactInfo.whatsappMessage)}`;
   
   // Get featured products (prefer featured flag, else take first 3)
   const featuredProducts = products

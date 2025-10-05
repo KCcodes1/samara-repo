@@ -3,6 +3,7 @@ import type { Metadata } from 'next';
 import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
 import { siteConfig } from '@/config/site';
+import { getContactInfo } from '@/lib/settings';
 
 export const metadata: Metadata = {
   title: {
@@ -39,16 +40,18 @@ export const metadata: Metadata = {
   },
 };
 
-export default function MarketingLayout({
+export default async function MarketingLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  const contactInfo = await getContactInfo();
+  
   return (
     <div className="min-h-screen flex flex-col">
-      <Header />
+      <Header contactInfo={contactInfo} />
       <main className="flex-1">{children}</main>
-      <Footer />
+      <Footer contactInfo={contactInfo} />
     </div>
   );
 }

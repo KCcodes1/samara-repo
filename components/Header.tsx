@@ -6,9 +6,14 @@ import { Container } from './Container';
 import { NavLink } from './NavLink';
 import { Button } from './Button';
 import { MobileMenu } from './MobileMenu';
+import { ContactInfo } from '@/lib/settings';
 import { siteConfig } from '@/config/site';
 
-export const Header: React.FC = () => {
+interface HeaderProps {
+  contactInfo: ContactInfo;
+}
+
+export const Header: React.FC<HeaderProps> = ({ contactInfo }) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const toggleMobileMenu = () => {
@@ -19,7 +24,7 @@ export const Header: React.FC = () => {
     setIsMobileMenuOpen(false);
   };
 
-  const whatsappUrl = `https://wa.me/254700000000?text=${encodeURIComponent(siteConfig.whatsappCtaDefault)}`;
+  const whatsappUrl = `https://wa.me/${contactInfo.whatsappNumber}?text=${encodeURIComponent(contactInfo.whatsappMessage)}`;
 
   return (
     <>
