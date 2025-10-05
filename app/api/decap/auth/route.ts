@@ -1,46 +1,37 @@
-import { cookies } from "next/headers";
-import { getSiteUrl } from "@/lib/siteUrl";
-
-export const runtime = "nodejs";
-export const dynamic = "force-dynamic";
+import { cookies } from 'next/headers';
+import { NextResponse } from 'next/server';
+import { getSiteUrl } from '@/lib/siteUrl';
 
 const GITHUB_CLIENT_ID = process.env.GITHUB_CLIENT_ID!;
+export const runtime = 'nodejs';
 
-function randomState(len = 24) {
-  const chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
-  let s = "";
-  for (let i = 0; i < len; i++) s += chars[Math.floor(Math.random() * chars.length)];
-  return s;
+function randomState(n = 24){
+  const chars='abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+  return Array.from({length:n},()=>chars[Math.floor(Math.random()*chars.length)]).join('');
 }
 
 export async function GET() {
-  if (!GITHUB_CLIENT_ID) return new Response("Missing GITHUB_CLIENT_ID", { status: 500 });
-
   const SITE_URL = getSiteUrl();
   const state = randomState();
 
-  const cookieStore = cookies();
-  cookieStore.set("decap_oauth_state", state, {
+  cookies().set({
+    name: 'decap_oauth_state',
+    value: state,
+    path: '/',
+    sameSite: 'lax',
     httpOnly: true,
-    sameSite: "lax",
-    secure: SITE_URL.startsWith("https://"),
-    path: "/",
-    maxAge: 10 * 60,
+    secure: SITE_URL.startsWith('https://'),
+    // Allow cookie to be valid on apex and www (harmless if you only use apex)
+    domain: '.samarahomes.co.ke',
   });
 
   const params = new URLSearchParams({
     client_id: GITHUB_CLIENT_ID,
-    scope: "repo", // or "public_repo"
+    scope: 'repo',
     state,
     redirect_uri: `${SITE_URL}/api/decap/callback`,
-    allow_signup: "true",
+    allow_signup: 'true',
   });
 
-  return new Response(null, {
-    status: 302,
-    headers: {
-      Location: `https://github.com/login/oauth/authorize?${params.toString()}`,
-      "Cache-Control": "no-store",
-    },
-  });
+  return NextResponse.redirect(`https://github.com/login/oauth/authorize?${params.toString()}`);
 }
