@@ -24,7 +24,7 @@ export default async function AboutPage() {
           {/* Hero Image */}
           <div className="relative h-96 md:h-[500px] rounded-2xl overflow-hidden shadow-soft-xl mb-16">
             <Image
-              src="/uploads/hero.jpg"
+              src={about?.frontmatter.heroImage || "/uploads/hero.jpg"}
               alt="Beautiful interior design showcase"
               fill
               className="object-cover"
