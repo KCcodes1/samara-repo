@@ -65,10 +65,10 @@ export default async function ServicesPage() {
             className="mb-8"
           />
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button href="/contact" variant="primary" size="lg">
+            <Button href="/contact" variant="primary" size="lg" asChild>
               Get Free Consultation
             </Button>
-            <Button href="/catalogue" variant="outline" size="lg">
+            <Button href="/catalogue" variant="outline" size="lg" asChild>
               View Our Work
             </Button>
           </div>
@@ -98,7 +98,7 @@ export default async function ServicesPage() {
               </div>
 
 
-              <Button variant="outline" size="md" className="w-full">
+              <Button href="/contact" variant="outline" size="md" className="w-full" asChild>
                 Learn More
               </Button>
             </div>
@@ -151,10 +151,10 @@ export default async function ServicesPage() {
             {servicesSettings.cta.description}
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button href="/contact" variant="outline" size="lg" className="bg-white text-brand-600 hover:bg-brand-50">
+            <Button href="/contact" variant="outline" size="lg" className="bg-white text-brand-600 hover:bg-brand-50" asChild>
               Schedule Consultation
             </Button>
-            <Button href="/catalogue" variant="ghost" size="lg" className="text-white border-white hover:bg-white hover:text-brand-600">
+            <Button href="/catalogue" variant="ghost" size="lg" className="text-white border-white hover:bg-white hover:text-brand-600" asChild>
               View Portfolio
             </Button>
           </div>

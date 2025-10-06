@@ -147,6 +147,7 @@ export default async function AboutPage() {
                 href="/contact" 
                 variant="outline"
                 className="bg-surface-0 text-brand border-surface-0 hover:bg-surface-50 hover:text-brand-fg font-semibold"
+                asChild
               >
                 Get Free Consultation
               </Button>
@@ -154,6 +155,7 @@ export default async function AboutPage() {
                 href="/catalogue" 
                 variant="outline"
                 className="bg-surface-0 border-2 border-surface-0 text-brand hover:bg-brand-soft hover:text-brand-fg font-semibold"
+                asChild
               >
                 View Our Work
               </Button>
