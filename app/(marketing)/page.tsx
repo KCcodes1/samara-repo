@@ -163,7 +163,7 @@ export default async function HomePage() {
       {recentProjects.length > 0 && (
         <Section
           title="Recent Projects"
-          subtitle="See how we've transformed spaces with our design expertise"
+          subtitle="See how we&apos;ve transformed spaces with our design expertise"
           className="bg-surface-50 py-16 md:py-20"
         >
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
@@ -250,7 +250,7 @@ export default async function HomePage() {
             Ready to Transform Your Space?
           </h2>
           <p className="text-lg sm:text-xl mb-8 max-w-2xl mx-auto opacity-90 leading-relaxed">
-            Browse {siteConfig.name}'s extensive catalogue and find the perfect pieces to create your dream home.
+            Browse {siteConfig.name}&apos;s extensive catalogue and find the perfect pieces to create your dream home.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <Button
