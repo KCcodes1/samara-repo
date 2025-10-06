@@ -85,6 +85,46 @@ collections:
               - { name: "pinterest", widget: string, label: "Pinterest URL", required: false }
               - { name: "tiktok", widget: string, label: "TikTok URL", required: false }
               - { name: "facebook", widget: string, label: "Facebook URL", required: false }
+      - label: "About Page Settings"
+        name: "about_settings"
+        file: "content/settings/about.json"
+        fields:
+          - label: "Statistics"
+            name: "statistics"
+            widget: object
+            fields:
+              - { name: "projectsCompleted", widget: string, label: "Projects Completed" }
+              - { name: "yearsExperience", widget: string, label: "Years Experience" }
+              - { name: "clientSatisfaction", widget: string, label: "Client Satisfaction %" }
+              - { name: "teamMembers", widget: string, label: "Team Members" }
+          - label: "Team Members"
+            name: "team"
+            widget: list
+            default: []
+            fields:
+              - { name: "name", widget: string, label: "Name" }
+              - { name: "role", widget: string, label: "Role/Position" }
+              - { name: "bio", widget: text, label: "Bio" }
+              - { name: "image", widget: image, label: "Profile Image", required: false }
+          - label: "Testimonials"
+            name: "testimonials"
+            widget: list
+            default: []
+            fields:
+              - { name: "name", widget: string, label: "Client Name" }
+              - { name: "location", widget: string, label: "Location" }
+              - { name: "rating", widget: number, label: "Rating (1-5)", value_type: int, min: 1, max: 5 }
+              - { name: "testimonial", widget: text, label: "Testimonial Text" }
+          - label: "Call to Action"
+            name: "cta"
+            widget: object
+            fields:
+              - { name: "title", widget: string, label: "CTA Title" }
+              - { name: "description", widget: text, label: "CTA Description" }
+              - { name: "primaryButtonText", widget: string, label: "Primary Button Text" }
+              - { name: "primaryButtonLink", widget: string, label: "Primary Button Link" }
+              - { name: "secondaryButtonText", widget: string, label: "Secondary Button Text" }
+              - { name: "secondaryButtonLink", widget: string, label: "Secondary Button Link" }
 
   - name: "products"
     label: "Products"
