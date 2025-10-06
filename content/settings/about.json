@@ -49,8 +49,8 @@
     "title": "Ready to Transform Your Space?",
     "description": "Let's work together to create the home of your dreams. Contact us today for a free consultation.",
     "primaryButtonText": "Get Free Consultation",
-    "primaryButtonLink": "https://www.samarahomes.co.ke/contact",
+    "primaryButtonLink": "/contact",
     "secondaryButtonText": "View Our Work",
-    "secondaryButtonLink": "https://www.samarahomes.co.ke/catalogue"
+    "secondaryButtonLink": "/catalogue"
   }
 }
