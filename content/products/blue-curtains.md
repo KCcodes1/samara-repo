@@ -1,8 +1,9 @@
 ---
 title: Blue Curtains
 slug: blue-curtains
-price: 10000
-categories: ["curtains"]
+price: 1300
+categories:
+  - curtains
 tags: []
 materials:
   - Silk
