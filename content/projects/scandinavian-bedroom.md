@@ -1,13 +1,12 @@
 ---
-title: "Scandinavian Bedroom Retreat"
-slug: "scandinavian-bedroom"
-cover: "/uploads/new-hero.jpg"
+title: Scandinavian Bedroom Retreat
+slug: scandinavian-bedroom
+cover: /uploads/scandinavian-bedroom.jpeg
 gallery:
-  - "/uploads/new-hero.jpg"
-  - "/uploads/about-hero.jpg"
-location: "Mombasa, Kenya"
-style: "Scandinavian"
-date: "2024-02-20"
+  - /uploads/scandinavian-bedroom.jpeg
+location: Mombasa, Kenya
+style: Scandinavian
+date: 2024-02-20
 ---
 
 # Scandinavian Bedroom Retreat
