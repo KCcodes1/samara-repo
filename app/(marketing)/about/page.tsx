@@ -145,7 +145,7 @@ export default async function AboutPage() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button 
                 href={aboutSettings.cta.primaryButtonLink} 
-                variant="secondary"
+                variant="outline"
                 className="bg-surface-0 text-brand hover:bg-surface-50"
               >
                 {aboutSettings.cta.primaryButtonText}
