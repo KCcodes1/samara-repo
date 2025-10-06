@@ -1,27 +1,30 @@
-"use client";
-import clsx from "clsx";
+import React from 'react';
 
-export default function TagPill({
-  label,
-  selected,
-  onToggle,
-}: {
+interface TagPillProps {
   label: string;
-  selected: boolean;
-  onToggle: (isSelected: boolean) => void; // eslint-disable-line no-unused-vars
-}) {
+  active: boolean;
+  onClick: () => void;
+  className?: string;
+}
+
+export function TagPill({ 
+  label, 
+  active, 
+  onClick, 
+  className = "" 
+}: TagPillProps) {
   return (
     <button
-      type="button"
-      className={clsx(
-        "rounded-full border px-3 py-1 text-sm transition",
-        selected
-          ? "border-brand bg-brand text-white"
-          : "border-gray-300 bg-white text-gray-700 hover:bg-gray-50"
-      )}
-      onClick={() => onToggle(!selected)}
-      aria-pressed={selected}
-      aria-label={`Filter by ${label}`}
+      onClick={onClick}
+      className={`
+        inline-flex items-center px-4 py-2 text-sm font-medium rounded-full transition-all duration-200
+        ${active 
+          ? 'bg-brand text-white shadow-soft hover:bg-brand-fg' 
+          : 'bg-surface-100 text-ink-600 hover:bg-surface-200 hover:text-ink-800'
+        }
+        ${className}
+      `}
+      aria-pressed={active}
     >
       {label}
     </button>

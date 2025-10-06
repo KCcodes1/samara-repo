@@ -1,31 +1,58 @@
-"use client";
-import { useEffect, useState } from "react";
+import React from 'react';
 
-export default function SearchInput({
-  defaultValue = "",
-  onChange,
-  placeholder = "Search products…",
-}: {
-  defaultValue?: string;
-  onChange: (value: string) => void; // eslint-disable-line no-unused-vars
+interface SearchInputProps {
+  value: string;
+  onChange: (value: string) => void;
   placeholder?: string;
-}) {
-  const [val, setVal] = useState(defaultValue);
-  
-  // Debounce 250ms
-  useEffect(() => {
-    const id = setTimeout(() => onChange(val), 250);
-    return () => clearTimeout(id);
-  }, [val, onChange]);
+  className?: string;
+}
 
+export function SearchInput({ 
+  value, 
+  onChange, 
+  placeholder = "Search...", 
+  className = "" 
+}: SearchInputProps) {
   return (
-    <input
-      type="search"
-      className="w-full rounded-xl border border-gray-300 bg-white px-3 py-2 text-sm outline-none focus:ring-2 focus:ring-brand"
-      placeholder={placeholder}
-      defaultValue={defaultValue}
-      onChange={(e) => setVal(e.target.value)}
-      aria-label="Search catalogue"
-    />
+    <div className={`relative ${className}`}>
+      <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+        <svg 
+          className="h-5 w-5 text-ink-400" 
+          fill="none" 
+          stroke="currentColor" 
+          viewBox="0 0 24 24"
+        >
+          <path 
+            strokeLinecap="round" 
+            strokeLinejoin="round" 
+            strokeWidth={2} 
+            d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" 
+          />
+        </svg>
+      </div>
+      <input
+        type="text"
+        value={value}
+        onChange={(e) => onChange(e.target.value)}
+        placeholder={placeholder}
+        className="block w-full pl-10 pr-3 py-3 border border-surface-200 rounded-lg bg-surface-0 text-ink-900 placeholder-ink-400 focus:outline-none focus:ring-2 focus:ring-brand focus:border-transparent transition-all duration-200"
+      />
+      {value && (
+        <button
+          onClick={() => onChange('')}
+          className="absolute inset-y-0 right-0 pr-3 flex items-center text-ink-400 hover:text-ink-600 transition-colors"
+          aria-label="Clear search"
+        >
+          <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path 
+              strokeLinecap="round" 
+              strokeLinejoin="round" 
+              strokeWidth={2} 
+              d="M6 18L18 6M6 6l12 12" 
+            />
+          </svg>
+        </button>
+      )}
+    </div>
   );
 }

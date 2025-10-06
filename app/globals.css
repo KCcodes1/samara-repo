@@ -241,6 +241,15 @@
   .mobile-card {
     @apply active:scale-98 transition-transform duration-200;
   }
+
+  /* Featured card styles */
+  .featured-card {
+    @apply transform transition-all duration-300 hover:scale-105;
+  }
+
+  .featured-elevated {
+    @apply shadow-soft-xl hover:shadow-glow-lg border-2 border-brand-soft;
+  }
   
   /* Mobile scroll indicators */
   .mobile-scroll-hint {
