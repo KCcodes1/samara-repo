@@ -1,9 +1,7 @@
 import React from 'react';
-import { Container } from '@/components/Container';
 import { PageHeader } from '@/components/PageHeader';
 import { Section } from '@/components/Section';
 import { Button } from '@/components/Button';
-import { getPage } from '@/lib/pages';
 import { getContactInfo, getServicesSettings } from '@/lib/settings';
 import ContactForm from '@/components/ContactForm';
 
@@ -47,7 +45,6 @@ function getServiceIcon(iconType: string) {
 }
 
 export default async function ServicesPage() {
-  const services = await getPage("services").catch(() => null);
   const contactInfo = await getContactInfo();
   const servicesSettings = await getServicesSettings();
 
@@ -144,7 +141,7 @@ export default async function ServicesPage() {
                   </svg>
                 ))}
               </div>
-              <p className="text-gray-600 mb-4 italic">"{testimonial.content}"</p>
+              <p className="text-gray-600 mb-4 italic">&ldquo;{testimonial.content}&rdquo;</p>
               <div>
                 <div className="font-semibold text-gray-900">{testimonial.name}</div>
                 <div className="text-sm text-gray-500">{testimonial.role}</div>
