@@ -6,39 +6,73 @@
   html {
     font-family: 'Inter', system-ui, sans-serif;
     scroll-behavior: smooth;
+    /* Mobile-first viewport optimization */
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
   }
   
   body {
     @apply text-ink-700 bg-surface-0 antialiased;
     font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
+    /* Mobile-first font optimization */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
   }
   
+  /* Mobile-first typography with improved readability */
   h1, h2, h3, h4, h5, h6 {
     @apply tracking-tight font-semibold leading-tight;
+    /* Better mobile readability */
+    word-wrap: break-word;
+    hyphens: auto;
   }
   
+  /* Mobile-first responsive typography */
   h1 {
-    @apply text-4xl md:text-5xl lg:text-6xl;
+    @apply text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl;
+    line-height: 1.1;
   }
   
   h2 {
-    @apply text-3xl md:text-4xl;
+    @apply text-2xl sm:text-3xl md:text-4xl lg:text-5xl;
+    line-height: 1.2;
   }
   
   h3 {
-    @apply text-2xl md:text-3xl;
+    @apply text-xl sm:text-2xl md:text-3xl lg:text-4xl;
+    line-height: 1.3;
   }
   
   h4 {
-    @apply text-xl md:text-2xl;
+    @apply text-lg sm:text-xl md:text-2xl lg:text-3xl;
+    line-height: 1.4;
   }
   
   h5 {
-    @apply text-lg md:text-xl;
+    @apply text-base sm:text-lg md:text-xl lg:text-2xl;
+    line-height: 1.4;
   }
   
   h6 {
-    @apply text-base md:text-lg;
+    @apply text-sm sm:text-base md:text-lg lg:text-xl;
+    line-height: 1.5;
+  }
+  
+  /* Mobile-optimized paragraph text */
+  p {
+    @apply text-base sm:text-lg leading-relaxed;
+    /* Better mobile reading experience */
+    line-height: 1.6;
+  }
+  
+  /* Mobile-optimized text utilities */
+  .mobile-text-sm {
+    @apply text-sm leading-relaxed;
+  }
+  
+  .mobile-text-lg {
+    @apply text-lg sm:text-xl leading-relaxed;
   }
   
   a {
@@ -171,6 +205,35 @@
   
   .hover-fade {
     @apply transition-opacity duration-300 hover:opacity-80;
+  }
+
+  /* Mobile-optimized touch interactions */
+  .mobile-touch {
+    @apply active:scale-95 transition-transform duration-150;
+  }
+  
+  .mobile-tap {
+    @apply active:bg-surface-100 transition-colors duration-150;
+  }
+  
+  /* Mobile-first button interactions */
+  .mobile-button {
+    @apply active:scale-95 transition-all duration-150;
+    /* Ensure minimum touch target size */
+    min-height: 44px;
+    min-width: 44px;
+  }
+  
+  /* Mobile-optimized card interactions */
+  .mobile-card {
+    @apply active:scale-98 transition-transform duration-200;
+  }
+  
+  /* Mobile scroll indicators */
+  .mobile-scroll-hint {
+    @apply animate-bounce;
+    animation-duration: 2s;
+    animation-iteration-count: 3;
   }
   
   /* Loading shimmer effect */

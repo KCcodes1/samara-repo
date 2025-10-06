@@ -3,21 +3,21 @@ import Link from 'next/link';
 import { cva, type VariantProps } from 'class-variance-authority';
 
 const buttonVariants = cva(
-  'inline-flex items-center justify-center font-semibold transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none relative overflow-hidden group',
+  'inline-flex items-center justify-center font-semibold transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none relative overflow-hidden group mobile-button',
   {
     variants: {
       variant: {
-        primary: 'bg-gradient-to-r from-brand to-brand-fg hover:from-brand-fg hover:to-brand text-white shadow-soft hover:shadow-glow focus:ring-brand-500 hover:scale-105 active:scale-95',
-        outline: 'bg-white hover:bg-brand-soft text-brand border-2 border-brand hover:border-brand-fg shadow-soft hover:shadow-soft-xl focus:ring-brand-500 hover:scale-105 active:scale-95',
-        ghost: 'bg-transparent hover:bg-brand-soft text-brand hover:text-brand-fg focus:ring-brand-500 hover:scale-105 active:scale-95',
-        accent: 'bg-gradient-to-r from-accent to-accent-600 hover:from-accent-600 hover:to-accent text-white shadow-soft hover:shadow-glow focus:ring-accent-500 hover:scale-105 active:scale-95',
-        success: 'bg-gradient-to-r from-success to-success-600 hover:from-success-600 hover:to-success text-white shadow-soft hover:shadow-glow focus:ring-success-500 hover:scale-105 active:scale-95',
+        primary: 'bg-gradient-to-r from-brand to-brand-fg hover:from-brand-fg hover:to-brand text-white shadow-soft hover:shadow-glow focus:ring-brand-500 hover:scale-105 active:scale-95 mobile-touch',
+        outline: 'bg-white hover:bg-brand-soft text-brand border-2 border-brand hover:border-brand-fg shadow-soft hover:shadow-soft-xl focus:ring-brand-500 hover:scale-105 active:scale-95 mobile-touch',
+        ghost: 'bg-transparent hover:bg-brand-soft text-brand hover:text-brand-fg focus:ring-brand-500 hover:scale-105 active:scale-95 mobile-tap',
+        accent: 'bg-gradient-to-r from-accent to-accent-600 hover:from-accent-600 hover:to-accent text-white shadow-soft hover:shadow-glow focus:ring-accent-500 hover:scale-105 active:scale-95 mobile-touch',
+        success: 'bg-gradient-to-r from-success to-success-600 hover:from-success-600 hover:to-success text-white shadow-soft hover:shadow-glow focus:ring-success-500 hover:scale-105 active:scale-95 mobile-touch',
       },
       size: {
-        sm: 'h-9 px-4 text-sm rounded-lg',
-        md: 'h-11 px-6 text-sm rounded-xl',
-        lg: 'h-14 px-8 text-base rounded-xl',
-        xl: 'h-16 px-10 text-lg rounded-2xl',
+        sm: 'h-10 px-4 text-sm rounded-lg min-w-[44px]',
+        md: 'h-12 px-6 text-sm rounded-xl min-w-[44px]',
+        lg: 'h-14 px-8 text-base rounded-xl min-w-[44px]',
+        xl: 'h-16 px-10 text-lg rounded-2xl min-w-[44px]',
       },
     },
     defaultVariants: {

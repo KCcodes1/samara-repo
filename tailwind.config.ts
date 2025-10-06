@@ -167,6 +167,13 @@ const config: Config = {
         'pulse-glow': 'pulseGlow 2s ease-in-out infinite',
         'float': 'float 3s ease-in-out infinite',
         'shimmer': 'shimmer 2s linear infinite',
+        /* Mobile-optimized animations */
+        'mobile-bounce': 'mobileBounce 0.6s ease-out',
+        'mobile-slide-up': 'mobileSlideUp 0.4s ease-out',
+        'mobile-fade-in': 'mobileFadeIn 0.3s ease-out',
+        'mobile-scale': 'mobileScale 0.2s ease-out',
+        'mobile-slide-in': 'mobileSlideIn 0.5s ease-out',
+        'touch-feedback': 'touchFeedback 0.15s ease-out',
       },
       keyframes: {
         fadeIn: {
@@ -208,6 +215,33 @@ const config: Config = {
         shimmer: {
           '0%': { transform: 'translateX(-100%)' },
           '100%': { transform: 'translateX(100%)' },
+        },
+        /* Mobile-optimized animations */
+        mobileBounce: {
+          '0%': { transform: 'translateY(0) scale(1)' },
+          '50%': { transform: 'translateY(-8px) scale(1.02)' },
+          '100%': { transform: 'translateY(0) scale(1)' },
+        },
+        mobileSlideUp: {
+          '0%': { transform: 'translateY(20px)', opacity: '0' },
+          '100%': { transform: 'translateY(0)', opacity: '1' },
+        },
+        mobileFadeIn: {
+          '0%': { opacity: '0' },
+          '100%': { opacity: '1' },
+        },
+        mobileScale: {
+          '0%': { transform: 'scale(0.95)', opacity: '0' },
+          '100%': { transform: 'scale(1)', opacity: '1' },
+        },
+        mobileSlideIn: {
+          '0%': { transform: 'translateX(-30px)', opacity: '0' },
+          '100%': { transform: 'translateX(0)', opacity: '1' },
+        },
+        touchFeedback: {
+          '0%': { transform: 'scale(1)' },
+          '50%': { transform: 'scale(0.95)' },
+          '100%': { transform: 'scale(1)' },
         },
       },
       transitionDuration: {
