@@ -63,7 +63,7 @@ ${data.content || 'Add project description here...'}
     // Check products
     const productsDir = path.join(this.contentDir, 'products');
     if (fs.existsSync(productsDir)) {
-      const products = fs.readdirSync(productsDir).filter(f => f.endsWith('.md'));
+      const products = fs.readdirSync(productsDir).filter(f => f.endsWith('.md') && f !== 'README.md');
       products.forEach(file => {
         const content = fs.readFileSync(path.join(productsDir, file), 'utf8');
         if (!content.includes('title:')) issues.push(`Product ${file} missing title`);

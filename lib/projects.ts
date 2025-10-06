@@ -5,7 +5,7 @@ import type { ProjectFrontmatter } from "@/types/content";
 
 export async function getAllProjects() {
   const dir = joinContent("projects");
-  const files = listDir(dir).filter((f) => f.endsWith(".md"));
+  const files = listDir(dir).filter((f) => f.endsWith(".md") && f !== "README.md");
   const items: (ProjectFrontmatter & { slug: string })[] = [];
   for (const file of files) {
     const raw = readFile(path.join(dir, file));
@@ -19,7 +19,7 @@ export async function getAllProjects() {
 
 export async function getProjectBySlug(slug: string) {
   const dir = joinContent("projects");
-  const files = listDir(dir).filter((f) => f.endsWith(".md"));
+  const files = listDir(dir).filter((f) => f.endsWith(".md") && f !== "README.md");
   for (const file of files) {
     const raw = readFile(path.join(dir, file));
     const parsed = await parseMarkdown<ProjectFrontmatter>(raw, true);

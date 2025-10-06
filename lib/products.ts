@@ -5,7 +5,7 @@ import type { ProductFrontmatter } from "@/types/content";
 
 export async function getAllProducts() {
   const dir = joinContent("products");
-  const files = listDir(dir).filter((f) => f.endsWith(".md"));
+  const files = listDir(dir).filter((f) => f.endsWith(".md") && f !== "README.md");
   const items: (ProductFrontmatter & { slug: string })[] = [];
   for (const file of files) {
     const raw = readFile(path.join(dir, file));
@@ -20,7 +20,7 @@ export async function getAllProducts() {
 
 export async function getProductBySlug(slug: string) {
   const dir = joinContent("products");
-  const files = listDir(dir).filter((f) => f.endsWith(".md"));
+  const files = listDir(dir).filter((f) => f.endsWith(".md") && f !== "README.md");
   for (const file of files) {
     const raw = readFile(path.join(dir, file));
     const parsed = await parseMarkdown<ProductFrontmatter>(raw, true);
