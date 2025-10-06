@@ -2,12 +2,14 @@ import React from 'react';
 import { Container } from '@/components/Container';
 import { PageHeader } from '@/components/PageHeader';
 import { getAllProjects } from '@/lib/projects';
+import { getProjectsSettings } from '@/lib/projects-settings';
 import ProjectCard from '@/components/cards/ProjectCard';
 import { ProjectFilters } from '@/components/filters/ProjectFilters';
 import { ProjectStats } from '@/components/ProjectStats';
 
 export default async function ProjectsPage() {
   const projects = await getAllProjects().catch(() => []);
+  const settings = await getProjectsSettings();
 
   // Extract unique values for filters
   const locations = [...new Set(projects.map(p => p.location).filter(Boolean))];
@@ -17,8 +19,8 @@ export default async function ProjectsPage() {
   return (
     <Container className="py-12">
       <PageHeader
-        title="Our Projects"
-        subtitle="Discover our portfolio of exceptional interior design transformations"
+        title={settings.hero.title}
+        subtitle={settings.hero.subtitle}
         className="text-center mb-16"
       />
 
@@ -44,8 +46,11 @@ export default async function ProjectsPage() {
               <svg className="w-6 h-6 mr-3 text-brand" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
               </svg>
-              Featured Projects
+              {settings.featuredSection.title}
             </h2>
+            {settings.featuredSection.description && (
+              <p className="text-ink-600 mb-6">{settings.featuredSection.description}</p>
+            )}
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
               {projects.slice(0, 2).map((project) => (
                 <div key={project.slug} className="group">
@@ -61,8 +66,11 @@ export default async function ProjectsPage() {
               <svg className="w-6 h-6 mr-3 text-brand" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
               </svg>
-              All Projects
+              {settings.allProjectsSection.title}
             </h2>
+            {settings.allProjectsSection.description && (
+              <p className="text-ink-600 mb-6">{settings.allProjectsSection.description}</p>
+            )}
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
               {projects.map((project, index) => (
                 <div 
@@ -78,9 +86,9 @@ export default async function ProjectsPage() {
 
           {/* Call to Action */}
           <section className="mt-16 text-center bg-gradient-to-br from-brand-soft/30 via-surface-50 to-accent-50 rounded-2xl p-8">
-            <h3 className="text-2xl font-bold text-ink-900 mb-4">Ready to Start Your Project?</h3>
+            <h3 className="text-2xl font-bold text-ink-900 mb-4">{settings.cta.title}</h3>
             <p className="text-ink-600 mb-6 max-w-2xl mx-auto">
-              Let us transform your space into something extraordinary. Get in touch to discuss your vision.
+              {settings.cta.description}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a 
@@ -110,13 +118,13 @@ export default async function ProjectsPage() {
             <svg className="w-16 h-16 mx-auto text-ink-300 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
             </svg>
-            <h3 className="text-xl font-semibold text-ink-900 mb-2">No Projects Yet</h3>
-            <p className="text-ink-600 mb-6">We're working on adding our amazing projects to showcase our work. Check back soon!</p>
+            <h3 className="text-xl font-semibold text-ink-900 mb-2">{settings.emptyState.title}</h3>
+            <p className="text-ink-600 mb-6">{settings.emptyState.description}</p>
             <a 
-              href="/contact" 
+              href={settings.emptyState.buttonLink} 
               className="inline-flex items-center px-6 py-3 bg-brand text-white font-semibold rounded-lg hover:bg-brand-fg transition-all duration-300"
             >
-              Get in Touch
+              {settings.emptyState.buttonText}
             </a>
           </div>
         </div>

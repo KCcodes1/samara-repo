@@ -186,6 +186,43 @@ collections:
               - { name: "primaryButtonLink", widget: string, label: "Primary Button Link" }
               - { name: "secondaryButtonText", widget: string, label: "Secondary Button Text" }
               - { name: "secondaryButtonLink", widget: string, label: "Secondary Button Link" }
+      - label: "Projects Page Settings"
+        name: "projects_settings"
+        file: "content/settings/projects.json"
+        fields:
+          - label: "Hero Section"
+            name: "hero"
+            widget: object
+            fields:
+              - { name: "title", widget: string, label: "Page Title" }
+              - { name: "subtitle", widget: text, label: "Page Subtitle" }
+          - label: "Featured Projects Section"
+            name: "featuredSection"
+            widget: object
+            fields:
+              - { name: "title", widget: string, label: "Featured Section Title" }
+              - { name: "description", widget: text, label: "Featured Section Description", required: false }
+          - label: "All Projects Section"
+            name: "allProjectsSection"
+            widget: object
+            fields:
+              - { name: "title", widget: string, label: "All Projects Section Title" }
+              - { name: "description", widget: text, label: "All Projects Section Description", required: false }
+          - label: "Empty State"
+            name: "emptyState"
+            widget: object
+            fields:
+              - { name: "title", widget: string, label: "Empty State Title" }
+              - { name: "description", widget: text, label: "Empty State Description" }
+              - { name: "buttonText", widget: string, label: "Empty State Button Text" }
+              - { name: "buttonLink", widget: string, label: "Empty State Button Link" }
+          - label: "Call to Action Section"
+            name: "cta"
+            widget: object
+            fields:
+              - { name: "title", widget: string, label: "CTA Title" }
+              - { name: "description", widget: text, label: "CTA Description" }
+              - { name: "backgroundImage", widget: image, label: "CTA Background Image", required: false }
 
   - name: "products"
     label: "Products"
