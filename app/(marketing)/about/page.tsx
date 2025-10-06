@@ -153,7 +153,7 @@ export default async function AboutPage() {
               <Button 
                 href={aboutSettings.cta.secondaryButtonLink} 
                 variant="outline"
-                className="bg-transparent border-2 border-surface-0 text-surface-0 hover:bg-surface-0 hover:text-brand font-semibold"
+                className="bg-surface-0 border-2 border-surface-0 text-brand hover:bg-brand-soft hover:text-brand-fg font-semibold"
               >
                 {aboutSettings.cta.secondaryButtonText}
               </Button>
