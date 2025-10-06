@@ -65,11 +65,11 @@ export default async function ServicesPage() {
             className="mb-8"
           />
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button href={servicesSettings.hero.primaryButtonLink} variant="primary" size="lg">
-              {servicesSettings.hero.primaryButtonText}
+            <Button href="/contact" variant="primary" size="lg">
+              Get Free Consultation
             </Button>
-            <Button href={servicesSettings.hero.secondaryButtonLink} variant="outline" size="lg">
-              {servicesSettings.hero.secondaryButtonText}
+            <Button href="/catalogue" variant="outline" size="lg">
+              View Our Work
             </Button>
           </div>
         </div>
@@ -151,11 +151,11 @@ export default async function ServicesPage() {
             {servicesSettings.cta.description}
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button href={servicesSettings.cta.primaryButtonLink} variant="outline" size="lg" className="bg-white text-brand-600 hover:bg-brand-50">
-              {servicesSettings.cta.primaryButtonText}
+            <Button href="/contact" variant="outline" size="lg" className="bg-white text-brand-600 hover:bg-brand-50">
+              Schedule Consultation
             </Button>
-            <Button href={servicesSettings.cta.secondaryButtonLink} variant="ghost" size="lg" className="text-white border-white hover:bg-white hover:text-brand-600">
-              {servicesSettings.cta.secondaryButtonText}
+            <Button href="/catalogue" variant="ghost" size="lg" className="text-white border-white hover:bg-white hover:text-brand-600">
+              View Portfolio
             </Button>
           </div>
         </div>

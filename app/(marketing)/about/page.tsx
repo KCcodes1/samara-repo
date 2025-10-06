@@ -144,18 +144,18 @@ export default async function AboutPage() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button 
-                href={aboutSettings.cta.primaryButtonLink} 
+                href="/contact" 
                 variant="outline"
                 className="bg-surface-0 text-brand border-surface-0 hover:bg-surface-50 hover:text-brand-fg font-semibold"
               >
-                {aboutSettings.cta.primaryButtonText}
+                Get Free Consultation
               </Button>
               <Button 
-                href={aboutSettings.cta.secondaryButtonLink} 
+                href="/catalogue" 
                 variant="outline"
                 className="bg-surface-0 border-2 border-surface-0 text-brand hover:bg-brand-soft hover:text-brand-fg font-semibold"
               >
-                {aboutSettings.cta.secondaryButtonText}
+                View Our Work
               </Button>
             </div>
           </div>
