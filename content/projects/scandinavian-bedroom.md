@@ -1,5 +1,5 @@
 ---
-title: "Scandinavian Bedroom Retreat"
+title: "Scandinavian Bedroom Retreat | Samara Homes Kenya - Interior Design Project Mombasa"
 slug: "scandinavian-bedroom"
 cover: "/uploads/new-hero.jpg"
 gallery:
@@ -8,6 +8,8 @@ gallery:
 location: "Mombasa, Kenya"
 style: "Scandinavian"
 date: "2024-02-20"
+description: "Scandinavian bedroom design project by Samara Homes Kenya in Mombasa. Coastal-inspired interior design with premium curtains, elegant furniture, and modern décor elements."
+keywords: "Scandinavian bedroom Kenya, Mombasa interior design, Samara Homes Kenya, bedroom design Kenya, coastal interior design, modern bedroom Kenya"
 ---
 
 # Scandinavian Bedroom Retreat
