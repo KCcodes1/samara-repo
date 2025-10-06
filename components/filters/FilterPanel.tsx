@@ -1,6 +1,6 @@
 "use client";
 import { useMemo } from "react";
-import TagPill from "./TagPill";
+import { TagPill } from "./TagPill";
 
 export type FilterPanelProps = {
   categories: { slug: string; title: string }[];

@@ -1,18 +1,23 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 interface SearchInputProps {
-  value: string;
-  onChange: (value: string) => void;
+  value?: string;
+  defaultValue?: string;
+  onChange: (_newValue: string) => void;
   placeholder?: string;
   className?: string;
 }
 
 export function SearchInput({ 
-  value, 
+  value: controlledValue, 
+  defaultValue, 
   onChange, 
   placeholder = "Search...", 
   className = "" 
 }: SearchInputProps) {
+  const [internalValue, setInternalValue] = useState(defaultValue || '');
+  const isControlled = controlledValue !== undefined;
+  const currentValue = isControlled ? controlledValue : internalValue;
   return (
     <div className={`relative ${className}`}>
       <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
@@ -32,14 +37,25 @@ export function SearchInput({
       </div>
       <input
         type="text"
-        value={value}
-        onChange={(e) => onChange(e.target.value)}
+        value={currentValue}
+        onChange={(e) => {
+          const newValue = e.target.value;
+          if (!isControlled) {
+            setInternalValue(newValue);
+          }
+          onChange(newValue);
+        }}
         placeholder={placeholder}
         className="block w-full pl-10 pr-3 py-3 border border-surface-200 rounded-lg bg-surface-0 text-ink-900 placeholder-ink-400 focus:outline-none focus:ring-2 focus:ring-brand focus:border-transparent transition-all duration-200"
       />
-      {value && (
+      {currentValue && (
         <button
-          onClick={() => onChange('')}
+          onClick={() => {
+            if (!isControlled) {
+              setInternalValue('');
+            }
+            onChange('');
+          }}
           className="absolute inset-y-0 right-0 pr-3 flex items-center text-ink-400 hover:text-ink-600 transition-colors"
           aria-label="Clear search"
         >

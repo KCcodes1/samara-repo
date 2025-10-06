@@ -3,8 +3,8 @@ import { useCallback, useMemo } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
 import ProductCard from "@/components/cards/ProductCard";
 import FilterPanel from "@/components/filters/FilterPanel";
-import SearchInput from "@/components/filters/SearchInput";
-import TagPill from "@/components/filters/TagPill";
+import { SearchInput } from "@/components/filters/SearchInput";
+import { TagPill } from "@/components/filters/TagPill";
 import type { ProductFrontmatter } from "@/types/content";
 import type { Category } from "@/lib/products";
 

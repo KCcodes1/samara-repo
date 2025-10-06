@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { SearchInput } from './SearchInput';
 import { TagPill } from './TagPill';
 
@@ -82,15 +82,15 @@ export function ProjectFilters({ locations, styles, years, totalProjects }: Proj
             <div className="flex flex-wrap gap-2">
               <TagPill
                 label="All Locations"
-                active={!selectedLocation}
-                onClick={() => setSelectedLocation('')}
+                selected={!selectedLocation}
+                onToggle={() => setSelectedLocation('')}
               />
               {locations.map((location) => (
                 <TagPill
                   key={location}
                   label={location}
-                  active={selectedLocation === location}
-                  onClick={() => setSelectedLocation(location)}
+                  selected={selectedLocation === location}
+                  onToggle={() => setSelectedLocation(location)}
                 />
               ))}
             </div>
@@ -109,15 +109,15 @@ export function ProjectFilters({ locations, styles, years, totalProjects }: Proj
             <div className="flex flex-wrap gap-2">
               <TagPill
                 label="All Styles"
-                active={!selectedStyle}
-                onClick={() => setSelectedStyle('')}
+                selected={!selectedStyle}
+                onToggle={() => setSelectedStyle('')}
               />
               {styles.map((style) => (
                 <TagPill
                   key={style}
                   label={style}
-                  active={selectedStyle === style}
-                  onClick={() => setSelectedStyle(style)}
+                  selected={selectedStyle === style}
+                  onToggle={() => setSelectedStyle(style)}
                 />
               ))}
             </div>
@@ -136,15 +136,15 @@ export function ProjectFilters({ locations, styles, years, totalProjects }: Proj
             <div className="flex flex-wrap gap-2">
               <TagPill
                 label="All Years"
-                active={selectedYear === null}
-                onClick={() => setSelectedYear(null)}
+                selected={selectedYear === null}
+                onToggle={() => setSelectedYear(null)}
               />
               {years.map((year) => (
                 <TagPill
                   key={year}
                   label={year.toString()}
-                  active={selectedYear === year}
-                  onClick={() => setSelectedYear(year)}
+                  selected={selectedYear === year}
+                  onToggle={() => setSelectedYear(year)}
                 />
               ))}
             </div>
@@ -160,7 +160,7 @@ export function ProjectFilters({ locations, styles, years, totalProjects }: Proj
               <span className="text-sm text-ink-600">Active filters:</span>
               {searchTerm && (
                 <span className="inline-flex items-center px-2 py-1 text-xs bg-brand-soft text-brand-fg rounded-full">
-                  Search: "{searchTerm}"
+                  Search: &quot;{searchTerm}&quot;
                 </span>
               )}
               {selectedLocation && (

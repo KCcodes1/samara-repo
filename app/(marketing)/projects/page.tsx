@@ -12,9 +12,9 @@ export default async function ProjectsPage() {
   const settings = await getProjectsSettings();
 
   // Extract unique values for filters
-  const locations = [...new Set(projects.map(p => p.location).filter(Boolean))];
-  const styles = [...new Set(projects.map(p => p.style).filter(Boolean))];
-  const years = [...new Set(projects.map(p => p.date ? new Date(p.date).getFullYear() : null).filter(Boolean))].sort((a, b) => b - a);
+  const locations = Array.from(new Set(projects.map(p => p.location).filter((loc): loc is string => Boolean(loc))));
+  const styles = Array.from(new Set(projects.map(p => p.style).filter((style): style is string => Boolean(style))));
+  const years = Array.from(new Set(projects.map(p => p.date ? new Date(p.date).getFullYear() : null).filter((year): year is number => year !== null))).sort((a, b) => b - a);
 
   return (
     <Container className="py-12">

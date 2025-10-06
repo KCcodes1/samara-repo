@@ -7,8 +7,8 @@ interface ProjectStatsProps {
 
 export function ProjectStats({ projects }: ProjectStatsProps) {
   const totalProjects = projects.length;
-  const uniqueLocations = [...new Set(projects.map(p => p.location).filter(Boolean))].length;
-  const uniqueStyles = [...new Set(projects.map(p => p.style).filter(Boolean))].length;
+  const uniqueLocations = Array.from(new Set(projects.map(p => p.location).filter((loc): loc is string => Boolean(loc)))).length;
+  const uniqueStyles = Array.from(new Set(projects.map(p => p.style).filter((style): style is string => Boolean(style)))).length;
   const recentProjects = projects.filter(p => {
     if (!p.date) return false;
     const projectDate = new Date(p.date);
