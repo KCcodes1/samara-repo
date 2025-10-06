@@ -102,7 +102,7 @@ export const Footer: React.FC<FooterProps> = ({ contactInfo }) => {
           <div className="border-t border-ink-700 mt-8 pt-8">
             <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
               <p className="text-ink-400 text-sm">
-                &copy; {currentYear} {contactInfo.companyName}. All rights reserved.
+                &copy; {currentYear} SABATECH. All rights reserved.
               </p>
               <div className="flex space-x-6 text-sm">
                 <Link
