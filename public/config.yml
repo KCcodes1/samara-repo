@@ -146,8 +146,6 @@ collections:
             fields:
               - { name: "title", widget: string, label: "Service Title" }
               - { name: "description", widget: text, label: "Service Description" }
-              - { name: "price", widget: string, label: "Price (e.g., 'From $150')" }
-              - { name: "duration", widget: string, label: "Duration (e.g., '2-3 hours')" }
               - { name: "icon", widget: select, label: "Icon", options: [
                   { label: "Consultation", value: "consultation" },
                   { label: "Room Makeover", value: "room-makeover" },

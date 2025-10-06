@@ -57,8 +57,6 @@ export interface ServicesSettings {
   services: Array<{
     title: string;
     description: string;
-    price: string;
-    duration: string;
     icon: string;
     features: string[];
   }>;
@@ -202,48 +200,36 @@ export async function getServicesSettings(): Promise<ServicesSettings> {
         {
           title: "Interior Design Consultation",
           description: "Professional design consultation to transform your space with expert guidance on layout, color schemes, and furniture selection.",
-          price: "From $150",
-          duration: "2-3 hours",
           icon: "consultation",
           features: ["Space planning", "Color consultation", "Furniture selection", "Style guidance"]
         },
         {
           title: "Complete Room Makeover",
           description: "Full-service room transformation including design, sourcing, and installation of all elements.",
-          price: "From $2,500",
-          duration: "2-4 weeks",
           icon: "room-makeover",
           features: ["Complete design plan", "Product sourcing", "Installation service", "Final styling"]
         },
         {
           title: "Custom Curtains & Drapes",
           description: "Bespoke window treatments designed and crafted to perfectly fit your windows and complement your interior style.",
-          price: "From $300",
-          duration: "1-2 weeks",
           icon: "curtains",
           features: ["Custom measurements", "Fabric selection", "Professional installation", "Maintenance guide"]
         },
         {
           title: "Furniture Selection & Styling",
           description: "Expert furniture curation and styling services to create cohesive, functional, and beautiful living spaces.",
-          price: "From $200",
-          duration: "1-2 weeks",
           icon: "furniture",
           features: ["Furniture sourcing", "Style coordination", "Space optimization", "Accessory selection"]
         },
         {
           title: "Home Staging",
           description: "Professional home staging services to showcase your property's potential and attract potential buyers or renters.",
-          price: "From $1,200",
-          duration: "3-5 days",
           icon: "staging",
           features: ["Property assessment", "Furniture rental", "Styling & arrangement", "Photo-ready setup"]
         },
         {
           title: "Maintenance & Updates",
           description: "Ongoing maintenance and seasonal updates to keep your space fresh and well-maintained throughout the year.",
-          price: "From $100",
-          duration: "As needed",
           icon: "maintenance",
           features: ["Seasonal updates", "Maintenance checks", "Style refreshes", "Trend consultations"]
         }

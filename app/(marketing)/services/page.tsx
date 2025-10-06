@@ -97,14 +97,6 @@ export default async function ServicesPage() {
                 ))}
               </div>
 
-              <div className="flex items-center justify-between mb-6">
-                <div>
-                  <span className="text-2xl font-bold text-brand-600">{service.price}</span>
-                </div>
-                <div className="text-sm text-gray-500">
-                  <span className="font-medium">Duration:</span> {service.duration}
-                </div>
-              </div>
 
               <Button variant="outline" size="md" className="w-full">
                 Learn More
