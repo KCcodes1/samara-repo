@@ -125,6 +125,69 @@ collections:
               - { name: "primaryButtonLink", widget: string, label: "Primary Button Link" }
               - { name: "secondaryButtonText", widget: string, label: "Secondary Button Text" }
               - { name: "secondaryButtonLink", widget: string, label: "Secondary Button Link" }
+      - label: "Services Page Settings"
+        name: "services_settings"
+        file: "content/settings/services.json"
+        fields:
+          - label: "Hero Section"
+            name: "hero"
+            widget: object
+            fields:
+              - { name: "title", widget: string, label: "Hero Title" }
+              - { name: "subtitle", widget: text, label: "Hero Subtitle" }
+              - { name: "primaryButtonText", widget: string, label: "Primary Button Text" }
+              - { name: "primaryButtonLink", widget: string, label: "Primary Button Link" }
+              - { name: "secondaryButtonText", widget: string, label: "Secondary Button Text" }
+              - { name: "secondaryButtonLink", widget: string, label: "Secondary Button Link" }
+          - label: "Services"
+            name: "services"
+            widget: list
+            default: []
+            fields:
+              - { name: "title", widget: string, label: "Service Title" }
+              - { name: "description", widget: text, label: "Service Description" }
+              - { name: "price", widget: string, label: "Price (e.g., 'From $150')" }
+              - { name: "duration", widget: string, label: "Duration (e.g., '2-3 hours')" }
+              - { name: "icon", widget: select, label: "Icon", options: [
+                  { label: "Consultation", value: "consultation" },
+                  { label: "Room Makeover", value: "room-makeover" },
+                  { label: "Curtains", value: "curtains" },
+                  { label: "Furniture", value: "furniture" },
+                  { label: "Home Staging", value: "staging" },
+                  { label: "Maintenance", value: "maintenance" }
+                ]}
+              - label: "Features"
+                name: "features"
+                widget: list
+                default: []
+                field: { name: "feature", widget: string }
+          - label: "Process Steps"
+            name: "processSteps"
+            widget: list
+            default: []
+            fields:
+              - { name: "step", widget: string, label: "Step Number (e.g., '01')" }
+              - { name: "title", widget: string, label: "Step Title" }
+              - { name: "description", widget: text, label: "Step Description" }
+          - label: "Testimonials"
+            name: "testimonials"
+            widget: list
+            default: []
+            fields:
+              - { name: "name", widget: string, label: "Client Name" }
+              - { name: "role", widget: string, label: "Client Role/Title" }
+              - { name: "content", widget: text, label: "Testimonial Content" }
+              - { name: "rating", widget: number, label: "Rating (1-5)", value_type: int, min: 1, max: 5 }
+          - label: "Call to Action"
+            name: "cta"
+            widget: object
+            fields:
+              - { name: "title", widget: string, label: "CTA Title" }
+              - { name: "description", widget: text, label: "CTA Description" }
+              - { name: "primaryButtonText", widget: string, label: "Primary Button Text" }
+              - { name: "primaryButtonLink", widget: string, label: "Primary Button Link" }
+              - { name: "secondaryButtonText", widget: string, label: "Secondary Button Text" }
+              - { name: "secondaryButtonLink", widget: string, label: "Secondary Button Link" }
 
   - name: "products"
     label: "Products"

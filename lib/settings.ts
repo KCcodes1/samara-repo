@@ -45,6 +45,44 @@ export interface AboutSettings {
   };
 }
 
+export interface ServicesSettings {
+  hero: {
+    title: string;
+    subtitle: string;
+    primaryButtonText: string;
+    primaryButtonLink: string;
+    secondaryButtonText: string;
+    secondaryButtonLink: string;
+  };
+  services: Array<{
+    title: string;
+    description: string;
+    price: string;
+    duration: string;
+    icon: string;
+    features: string[];
+  }>;
+  processSteps: Array<{
+    step: string;
+    title: string;
+    description: string;
+  }>;
+  testimonials: Array<{
+    name: string;
+    role: string;
+    content: string;
+    rating: number;
+  }>;
+  cta: {
+    title: string;
+    description: string;
+    primaryButtonText: string;
+    primaryButtonLink: string;
+    secondaryButtonText: string;
+    secondaryButtonLink: string;
+  };
+}
+
 export async function getContactInfo(): Promise<ContactInfo> {
   try {
     const filePath = path.join(process.cwd(), 'content/settings/contact.json');
@@ -135,6 +173,129 @@ export async function getAboutSettings(): Promise<AboutSettings> {
         primaryButtonText: "Get Free Consultation",
         primaryButtonLink: "/contact",
         secondaryButtonText: "View Our Work",
+        secondaryButtonLink: "/catalogue"
+      }
+    };
+  }
+}
+
+export async function getServicesSettings(): Promise<ServicesSettings> {
+  try {
+    const filePath = path.join(process.cwd(), 'content/settings/services.json');
+    const fileContent = fs.readFileSync(filePath, 'utf8');
+    const servicesSettings = JSON.parse(fileContent) as ServicesSettings;
+    
+    return servicesSettings;
+  } catch (error) {
+    console.error('Error reading services settings:', error);
+    // Return default values if file doesn't exist or is invalid
+    return {
+      hero: {
+        title: "Transform Your Space with Expert Design Services",
+        subtitle: "Professional interior design and home décor solutions tailored to your style, budget, and lifestyle. From consultation to completion, we bring your vision to life.",
+        primaryButtonText: "Get Free Consultation",
+        primaryButtonLink: "/contact",
+        secondaryButtonText: "View Our Work",
+        secondaryButtonLink: "/catalogue"
+      },
+      services: [
+        {
+          title: "Interior Design Consultation",
+          description: "Professional design consultation to transform your space with expert guidance on layout, color schemes, and furniture selection.",
+          price: "From $150",
+          duration: "2-3 hours",
+          icon: "consultation",
+          features: ["Space planning", "Color consultation", "Furniture selection", "Style guidance"]
+        },
+        {
+          title: "Complete Room Makeover",
+          description: "Full-service room transformation including design, sourcing, and installation of all elements.",
+          price: "From $2,500",
+          duration: "2-4 weeks",
+          icon: "room-makeover",
+          features: ["Complete design plan", "Product sourcing", "Installation service", "Final styling"]
+        },
+        {
+          title: "Custom Curtains & Drapes",
+          description: "Bespoke window treatments designed and crafted to perfectly fit your windows and complement your interior style.",
+          price: "From $300",
+          duration: "1-2 weeks",
+          icon: "curtains",
+          features: ["Custom measurements", "Fabric selection", "Professional installation", "Maintenance guide"]
+        },
+        {
+          title: "Furniture Selection & Styling",
+          description: "Expert furniture curation and styling services to create cohesive, functional, and beautiful living spaces.",
+          price: "From $200",
+          duration: "1-2 weeks",
+          icon: "furniture",
+          features: ["Furniture sourcing", "Style coordination", "Space optimization", "Accessory selection"]
+        },
+        {
+          title: "Home Staging",
+          description: "Professional home staging services to showcase your property's potential and attract potential buyers or renters.",
+          price: "From $1,200",
+          duration: "3-5 days",
+          icon: "staging",
+          features: ["Property assessment", "Furniture rental", "Styling & arrangement", "Photo-ready setup"]
+        },
+        {
+          title: "Maintenance & Updates",
+          description: "Ongoing maintenance and seasonal updates to keep your space fresh and well-maintained throughout the year.",
+          price: "From $100",
+          duration: "As needed",
+          icon: "maintenance",
+          features: ["Seasonal updates", "Maintenance checks", "Style refreshes", "Trend consultations"]
+        }
+      ],
+      processSteps: [
+        {
+          step: "01",
+          title: "Initial Consultation",
+          description: "We start with a detailed discussion about your vision, lifestyle, and budget to understand your needs."
+        },
+        {
+          step: "02",
+          title: "Design & Planning",
+          description: "Our team creates a comprehensive design plan with 3D visualizations and detailed specifications."
+        },
+        {
+          step: "03",
+          title: "Sourcing & Procurement",
+          description: "We source the best materials and furniture within your budget, handling all vendor relationships."
+        },
+        {
+          step: "04",
+          title: "Installation & Styling",
+          description: "Professional installation and final styling to bring your vision to life with attention to every detail."
+        }
+      ],
+      testimonials: [
+        {
+          name: "Sarah Johnson",
+          role: "Homeowner",
+          content: "Samara transformed our living room completely. Their attention to detail and professional approach exceeded our expectations.",
+          rating: 5
+        },
+        {
+          name: "Michael Chen",
+          role: "Business Owner",
+          content: "The home staging service helped us sell our property 30% faster than expected. Highly recommend their expertise.",
+          rating: 5
+        },
+        {
+          name: "Emily Rodriguez",
+          role: "Interior Enthusiast",
+          content: "Their custom curtain service was outstanding. Perfect fit, beautiful fabric selection, and professional installation.",
+          rating: 5
+        }
+      ],
+      cta: {
+        title: "Ready to Transform Your Space?",
+        description: "Get started with a free consultation and discover how we can bring your vision to life.",
+        primaryButtonText: "Schedule Consultation",
+        primaryButtonLink: "/contact",
+        secondaryButtonText: "View Portfolio",
         secondaryButtonLink: "/catalogue"
       }
     };
