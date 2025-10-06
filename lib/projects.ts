@@ -13,7 +13,7 @@ export async function getAllProjects() {
     if (!parsed.data?.slug) continue;
     items.push({ ...parsed.data, slug: parsed.data.slug });
   }
-  items.sort((a, b) => (b.date || "").localeCompare(a.date || "") || a.title.localeCompare(b.title));
+  items.sort((a, b) => String(b.date || "").localeCompare(String(a.date || "")) || a.title.localeCompare(b.title));
   return items;
 }
 
