@@ -32,7 +32,7 @@ export default async function HomePage() {
   return (
     <>
       {/* Mobile-First Hero Section - Full Screen Impact */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-surface-0 via-surface-50 to-brand-soft">
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden warm-gradient">
         {/* Background Image with Overlay */}
         <div className="absolute inset-0 z-0">
           {home?.frontmatter.heroImage ? (
@@ -199,7 +199,7 @@ export default async function HomePage() {
       >
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
           <div className="text-center group">
-            <div className="w-20 h-20 bg-gradient-to-br from-brand to-brand-fg rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg">
+            <div className="w-20 h-20 mustard-gradient rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg">
               <svg className="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
               </svg>
@@ -211,7 +211,7 @@ export default async function HomePage() {
           </div>
           
           <div className="text-center group">
-            <div className="w-20 h-20 bg-gradient-to-br from-accent to-accent-600 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg">
+            <div className="w-20 h-20 bg-gradient-to-br from-complementary-terracotta to-complementary-burgundy rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg">
               <svg className="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zM21 5a2 2 0 00-2-2h-4a2 2 0 00-2 2v12a4 4 0 004 4h4a2 2 0 002-2V5z" />
               </svg>
@@ -223,7 +223,7 @@ export default async function HomePage() {
           </div>
           
           <div className="text-center group">
-            <div className="w-20 h-20 bg-gradient-to-br from-success to-success-600 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg">
+            <div className="w-20 h-20 bg-gradient-to-br from-complementary-olive to-complementary-navy rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg">
               <svg className="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" />
               </svg>
@@ -237,7 +237,7 @@ export default async function HomePage() {
       </Section>
 
       {/* Mobile-Optimized CTA Section */}
-      <Section className="bg-gradient-to-r from-brand via-brand-fg to-brand-dark text-white relative overflow-hidden py-16 md:py-20">
+      <Section className="luxury-gradient text-white relative overflow-hidden py-16 md:py-20">
         {/* Background decoration */}
         <div className="absolute inset-0">
           <div className="absolute top-10 left-10 w-32 h-32 bg-white/10 rounded-full animate-float"></div>

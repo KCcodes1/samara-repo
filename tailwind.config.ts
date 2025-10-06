@@ -9,13 +9,13 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        // Modern brand colors - sophisticated blue palette
+        // Award-winning mustard palette - sophisticated and warm
         brand: {
-          DEFAULT: '#2563eb',
-          fg: '#1d4ed8',
-          soft: '#dbeafe',
-          light: '#3b82f6',
-          dark: '#1e40af',
+          DEFAULT: '#D4AF37', // Rich mustard gold
+          fg: '#B8860B', // Darker mustard for text
+          soft: '#F5E6A3', // Light mustard cream
+          light: '#E6C547', // Bright mustard
+          dark: '#9A7B0A', // Deep mustard
         },
         // Enhanced ink colors for better contrast
         ink: {
@@ -53,20 +53,20 @@ const config: Config = {
           900: '#1e3a8a',
           950: '#172554',
         },
-        // Enhanced accent color - warm gold
+        // Complementary accent colors that work with mustard
         accent: {
-          DEFAULT: '#f59e0b',
-          50: '#fffbeb',
-          100: '#fef3c7',
-          200: '#fde68a',
-          300: '#fcd34d',
-          400: '#fbbf24',
-          500: '#f59e0b',
-          600: '#d97706',
-          700: '#b45309',
-          800: '#92400e',
-          900: '#78350f',
-          950: '#451a03',
+          DEFAULT: '#8B4513', // Rich saddle brown
+          50: '#fdf6e3', // Warm cream
+          100: '#f9e6b3', // Light cream
+          200: '#f2d7a3', // Soft cream
+          300: '#e6c547', // Bright mustard
+          400: '#d4af37', // Rich mustard
+          500: '#b8860b', // Dark mustard
+          600: '#9a7b0a', // Deep mustard
+          700: '#7d5a08', // Darker mustard
+          800: '#5c4206', // Very dark mustard
+          900: '#3d2b04', // Darkest mustard
+          950: '#1f1502', // Almost black mustard
         },
         // Success color
         success: {
@@ -113,20 +113,29 @@ const config: Config = {
           900: '#7f1d1d',
           950: '#450a0a',
         },
-        // Muted background color
+        // Sophisticated muted colors that complement mustard
         muted: {
-          DEFAULT: '#f1f5f9',
-          50: '#f8fafc',
-          100: '#f1f5f9',
-          200: '#e2e8f0',
-          300: '#cbd5e1',
-          400: '#94a3b8',
-          500: '#64748b',
-          600: '#475569',
-          700: '#334155',
-          800: '#1e293b',
-          900: '#0f172a',
-          950: '#020617',
+          DEFAULT: '#f5f5dc', // Beige
+          50: '#fefefe', // Pure white
+          100: '#f8f8f0', // Warm white
+          200: '#f0f0e8', // Cream
+          300: '#e8e8d8', // Light beige
+          400: '#d0d0c0', // Medium beige
+          500: '#b8b8a8', // Warm gray
+          600: '#a0a090', // Cool gray
+          700: '#888878', // Dark gray
+          800: '#707060', // Darker gray
+          900: '#585848', // Very dark gray
+          950: '#404030', // Almost black
+        },
+        // Award-winning complementary colors
+        complementary: {
+          navy: '#1e3a8a', // Deep navy for contrast
+          charcoal: '#36454f', // Charcoal gray
+          cream: '#f5f5dc', // Warm cream
+          terracotta: '#e2725b', // Warm terracotta
+          olive: '#556b2f', // Muted olive green
+          burgundy: '#800020', // Rich burgundy
         },
       },
       fontFamily: {

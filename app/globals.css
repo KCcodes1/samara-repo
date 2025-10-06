@@ -189,6 +189,19 @@
     @apply tracking-wide uppercase text-sm text-brand-fg;
   }
   
+  /* Mustard-themed gradients */
+  .mustard-gradient {
+    @apply bg-gradient-to-r from-brand to-brand-light;
+  }
+  
+  .warm-gradient {
+    @apply bg-gradient-to-br from-brand-soft via-muted-100 to-accent-50;
+  }
+  
+  .luxury-gradient {
+    @apply bg-gradient-to-r from-brand-dark via-brand to-brand-light;
+  }
+  
   /* Enhanced hover effects */
   .hover-raise {
     @apply transition-all duration-300 hover:-translate-y-1 hover:shadow-soft-xl hover:scale-105;
