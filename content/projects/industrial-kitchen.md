@@ -2,9 +2,7 @@
 title: Industrial Kitchen Renovation
 slug: industrial-kitchen
 cover: /uploads/industrial-kitchen.jpg
-gallery:
-  - /uploads/staff-1.jpg
-  - /uploads/staff-fem-1.jpg
+gallery: []
 location: Kisumu, Kenya
 style: Industrial
 date: 2024-03-10
