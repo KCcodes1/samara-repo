@@ -1,13 +1,13 @@
 ---
-title: "Industrial Kitchen Renovation"
-slug: "industrial-kitchen"
-cover: "/uploads/staff-1.jpg"
+title: Industrial Kitchen Renovation
+slug: industrial-kitchen
+cover: /uploads/industrial-kitchen.jpg
 gallery:
-  - "/uploads/staff-1.jpg"
-  - "/uploads/staff-fem-1.jpg"
-location: "Kisumu, Kenya"
-style: "Industrial"
-date: "2024-03-10"
+  - /uploads/staff-1.jpg
+  - /uploads/staff-fem-1.jpg
+location: Kisumu, Kenya
+style: Industrial
+date: 2024-03-10
 ---
 
 # Industrial Kitchen Renovation
