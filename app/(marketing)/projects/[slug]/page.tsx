@@ -4,6 +4,8 @@ import { Container } from '@/components/Container';
 import { Breadcrumbs } from '@/components/Breadcrumbs';
 import { getAllProjects, getProjectBySlug } from '@/lib/projects';
 import { getAllProducts } from '@/lib/products';
+import { getContactInfo } from '@/lib/settings';
+import { getSiteUrl } from '@/lib/siteUrl';
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import Image from 'next/image';
@@ -64,6 +66,8 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
   const { slug } = await params;
   const project = await getProjectBySlug(slug);
   const allProducts = await getAllProducts();
+  const contactInfo = await getContactInfo();
+  const siteUrl = getSiteUrl();
 
   if (!project) {
     notFound();
@@ -73,6 +77,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
   const galleryImages = frontmatter.gallery?.map(img => ({ src: img, alt: frontmatter.title })) || [];
   const hasGallery = galleryImages.length > 0;
   const coverImage = frontmatter.cover || frontmatter.gallery?.[0];
+  const projectUrl = `${siteUrl}/projects/${slug}`;
 
   return (
     <>
@@ -133,7 +138,8 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
           <div className="mb-6">
             <ShareButtons
               title={frontmatter.title}
-              url={canon(`/projects/${slug}`)}
+              url={projectUrl}
+              whatsappNumber={contactInfo.whatsappNumber}
             />
           </div>
         </div>

@@ -3,18 +3,21 @@ import Link from 'next/link';
 import { cva, type VariantProps } from 'class-variance-authority';
 
 const buttonVariants = cva(
-  'inline-flex items-center justify-center font-semibold transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none',
+  'inline-flex items-center justify-center font-semibold transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none relative overflow-hidden group',
   {
     variants: {
       variant: {
-        primary: 'bg-primary hover:bg-primary-600 text-white shadow-soft hover:shadow-soft-xl focus:ring-primary-500',
-        outline: 'bg-white hover:bg-muted text-primary border border-primary-200 hover:border-primary-300 shadow-soft hover:shadow-soft-xl focus:ring-primary-500',
-        ghost: 'bg-transparent hover:bg-muted text-primary hover:text-primary-600 focus:ring-primary-500',
+        primary: 'bg-gradient-to-r from-brand to-brand-fg hover:from-brand-fg hover:to-brand text-white shadow-soft hover:shadow-glow focus:ring-brand-500 hover:scale-105 active:scale-95',
+        outline: 'bg-white hover:bg-brand-soft text-brand border-2 border-brand hover:border-brand-fg shadow-soft hover:shadow-soft-xl focus:ring-brand-500 hover:scale-105 active:scale-95',
+        ghost: 'bg-transparent hover:bg-brand-soft text-brand hover:text-brand-fg focus:ring-brand-500 hover:scale-105 active:scale-95',
+        accent: 'bg-gradient-to-r from-accent to-accent-600 hover:from-accent-600 hover:to-accent text-white shadow-soft hover:shadow-glow focus:ring-accent-500 hover:scale-105 active:scale-95',
+        success: 'bg-gradient-to-r from-success to-success-600 hover:from-success-600 hover:to-success text-white shadow-soft hover:shadow-glow focus:ring-success-500 hover:scale-105 active:scale-95',
       },
       size: {
-        sm: 'h-9 px-4 text-sm rounded-md',
-        md: 'h-10 px-6 text-sm rounded-lg',
-        lg: 'h-12 px-8 text-base rounded-lg',
+        sm: 'h-9 px-4 text-sm rounded-lg',
+        md: 'h-11 px-6 text-sm rounded-xl',
+        lg: 'h-14 px-8 text-base rounded-xl',
+        xl: 'h-16 px-10 text-lg rounded-2xl',
       },
     },
     defaultVariants: {
@@ -50,9 +53,11 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         className={classes}
         ref={ref}
         aria-label={ariaLabel}
+        style={{ transitionTimingFunction: 'cubic-bezier(0.34, 1.56, 0.64, 1)' }}
         {...props}
       >
-        {children}
+        <span className="relative z-10">{children}</span>
+        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-out"></div>
       </button>
     );
   }

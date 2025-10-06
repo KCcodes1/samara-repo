@@ -14,18 +14,18 @@ export const Footer: React.FC<FooterProps> = ({ contactInfo }) => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-ink-900 text-surface-0">
+    <footer className="bg-ink-900 text-surface-0 relative overflow-hidden">
       <Container>
         <div className="py-12">
           {/* Social Proof Section */}
-          <div className="text-center mb-8 pb-8 border-b border-ink-700">
+          <div className="text-center mb-8 pb-8 border-b border-ink-700 animate-fade-in-up">
             <p className="text-ink-400 text-sm mb-4">As seen on</p>
             <div className="flex justify-center items-center space-x-8 text-ink-500">
-              <span className="text-sm font-medium">Instagram</span>
+              <span className="text-sm font-medium hover:text-surface-0 transition-colors duration-300">Instagram</span>
               <span className="text-ink-600">•</span>
-              <span className="text-sm font-medium">Pinterest</span>
+              <span className="text-sm font-medium hover:text-surface-0 transition-colors duration-300">Pinterest</span>
               <span className="text-ink-600">•</span>
-              <span className="text-sm font-medium">Facebook</span>
+              <span className="text-sm font-medium hover:text-surface-0 transition-colors duration-300">Facebook</span>
             </div>
           </div>
           

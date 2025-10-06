@@ -13,10 +13,10 @@ export default function ProductCard({ item }: ProductCardProps): JSX.Element {
   return (
     <Link 
       href={`/catalogue/${item.slug}`}
-      className="group block hover-raise"
+      className="group block hover-raise animate-fade-in-up"
       aria-label={`View ${item.title}`}
     >
-      <div className="elevated overflow-hidden">
+      <div className="elevated overflow-hidden relative">
         {/* Image container with aspect ratio */}
         <div className="relative w-full h-48 sm:h-56 lg:h-64 bg-surface-100">
           {firstImage ? (
@@ -24,7 +24,7 @@ export default function ProductCard({ item }: ProductCardProps): JSX.Element {
               src={firstImage}
               alt={item.title}
               fill
-              className="object-cover group-hover:scale-105 transition-transform duration-300"
+              className="object-cover group-hover:scale-110 transition-all duration-500 ease-out-back"
               sizes="(min-width: 1024px) 25vw, (min-width: 768px) 50vw, 100vw"
               priority={false}
             />
@@ -40,7 +40,7 @@ export default function ProductCard({ item }: ProductCardProps): JSX.Element {
         {/* Content */}
         <div className="p-6">
           {/* Title with line clamp */}
-          <h3 className="font-semibold text-ink-900 group-hover:text-brand transition-colors mb-3 line-clamp-2">
+          <h3 className="font-semibold text-ink-900 group-hover:text-brand transition-all duration-300 mb-3 line-clamp-2">
             {item.title}
           </h3>
           

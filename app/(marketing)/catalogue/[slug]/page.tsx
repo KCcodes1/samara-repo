@@ -4,6 +4,8 @@ import { Container } from '@/components/Container';
 import { Breadcrumbs } from '@/components/Breadcrumbs';
 import { Button } from '@/components/Button';
 import { getAllProducts, getProductBySlug } from '@/lib/products';
+import { getContactInfo } from '@/lib/settings';
+import { getSiteUrl } from '@/lib/siteUrl';
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import Gallery from '@/components/gallery/Gallery';
@@ -63,6 +65,8 @@ export default async function ProductPage({ params }: ProductPageProps) {
   const { slug } = await params;
   const product = await getProductBySlug(slug);
   const allProducts = await getAllProducts();
+  const contactInfo = await getContactInfo();
+  const siteUrl = getSiteUrl();
 
   if (!product) {
     notFound();
@@ -71,7 +75,8 @@ export default async function ProductPage({ params }: ProductPageProps) {
   const { frontmatter, html } = product;
   const galleryImages = frontmatter.images?.map(img => ({ src: img, alt: frontmatter.title })) || [];
   const whatsappMessage = `Hi! I'm interested in ${frontmatter.title}${frontmatter.price ? ` (KSh ${frontmatter.price.toLocaleString()})` : ''}. Can you tell me more about it?`;
-  const whatsappUrl = `https://wa.me/254700000000?text=${encodeURIComponent(whatsappMessage)}`;
+  const whatsappUrl = `https://wa.me/${contactInfo.whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`;
+  const productUrl = `${siteUrl}/catalogue/${slug}`;
 
   return (
     <>
@@ -170,8 +175,9 @@ export default async function ProductPage({ params }: ProductPageProps) {
                 <div className="mb-6">
                   <ShareButtons
                     title={frontmatter.title}
-                    url={canon(`/catalogue/${slug}`)}
+                    url={productUrl}
                     whatsappMessage={whatsappMessage}
+                    whatsappNumber={contactInfo.whatsappNumber}
                   />
                 </div>
               </div>

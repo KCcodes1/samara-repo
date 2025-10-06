@@ -32,27 +32,28 @@ export default async function HomePage() {
   return (
     <>
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-surface-0 via-surface-50 to-brand-soft py-20 lg:py-32">
+      <section className="relative bg-gradient-to-br from-surface-0 via-surface-50 to-brand-soft py-20 lg:py-32 overflow-hidden">
         <Container>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             {/* Left: Content */}
-            <div className="text-center lg:text-left">
-              <div className="eyebrow mb-4">
+            <div className="text-center lg:text-left animate-fade-in-up">
+              <div className="eyebrow mb-4 animate-fade-in-down" style={{ animationDelay: '0.1s' }}>
                 {siteConfig.tagline}
               </div>
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-ink-900 mb-6 leading-tight">
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-ink-900 mb-6 leading-tight animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
                 {home?.frontmatter.heroTitle || "Elevate your space with timeless pieces"}
               </h1>
-              <p className="text-lg md:text-xl text-ink-700 mb-8 max-w-2xl mx-auto lg:mx-0">
+              <p className="text-lg md:text-xl text-ink-700 mb-8 max-w-2xl mx-auto lg:mx-0 animate-fade-in-up" style={{ animationDelay: '0.3s' }}>
                 {home?.frontmatter.heroSubtitle || "Transform your living space with our curated collection of premium home décor and interior fittings. From modern minimalism to classic elegance, discover pieces that reflect your unique style."}
               </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+              <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start animate-fade-in-up" style={{ animationDelay: '0.4s' }}>
                 <Button
                   asChild
                   href="/catalogue"
                   variant="primary"
                   size="lg"
-                  className="hover-raise"
+                  className="hover-raise animate-scale-in"
+                  style={{ animationDelay: '0.5s' }}
                   aria-label="View our catalogue"
                 >
                   View Catalogue
@@ -62,7 +63,8 @@ export default async function HomePage() {
                   href={whatsappUrl}
                   variant="outline"
                   size="lg"
-                  className="hover-raise"
+                  className="hover-raise animate-scale-in"
+                  style={{ animationDelay: '0.6s' }}
                   aria-label="Contact us on WhatsApp"
                 >
                   WhatsApp
@@ -71,8 +73,8 @@ export default async function HomePage() {
             </div>
             
             {/* Right: Image */}
-            <div className="flex justify-center lg:justify-end">
-              <div className="relative w-full max-w-lg h-96 lg:h-[500px] rounded-2xl overflow-hidden">
+            <div className="flex justify-center lg:justify-end animate-fade-in-up" style={{ animationDelay: '0.3s' }}>
+              <div className="relative w-full max-w-lg h-96 lg:h-[500px] rounded-2xl overflow-hidden hover-scale">
                 {home?.frontmatter.heroImage ? (
                   <Image
                     src={home.frontmatter.heroImage}
@@ -163,8 +165,8 @@ export default async function HomePage() {
         className="soft-section"
       >
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <div className="text-center p-6 elevated hover-raise">
-            <div className="w-16 h-16 bg-brand-soft rounded-full flex items-center justify-center mx-auto mb-4">
+          <div className="text-center p-6 elevated hover-raise animate-fade-in-up animate-stagger-1">
+            <div className="w-16 h-16 bg-brand-soft rounded-full flex items-center justify-center mx-auto mb-4 hover-scale">
               <svg className="w-8 h-8 text-brand" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
               </svg>
@@ -175,8 +177,8 @@ export default async function HomePage() {
             </p>
           </div>
           
-          <div className="text-center p-6 elevated hover-raise">
-            <div className="w-16 h-16 bg-brand-soft rounded-full flex items-center justify-center mx-auto mb-4">
+          <div className="text-center p-6 elevated hover-raise animate-fade-in-up animate-stagger-2">
+            <div className="w-16 h-16 bg-brand-soft rounded-full flex items-center justify-center mx-auto mb-4 hover-scale">
               <svg className="w-8 h-8 text-brand" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zM21 5a2 2 0 00-2-2h-4a2 2 0 00-2 2v12a4 4 0 004 4h4a2 2 0 002-2V5z" />
               </svg>
@@ -187,8 +189,8 @@ export default async function HomePage() {
             </p>
           </div>
           
-          <div className="text-center p-6 elevated hover-raise">
-            <div className="w-16 h-16 bg-brand-soft rounded-full flex items-center justify-center mx-auto mb-4">
+          <div className="text-center p-6 elevated hover-raise animate-fade-in-up animate-stagger-3">
+            <div className="w-16 h-16 bg-brand-soft rounded-full flex items-center justify-center mx-auto mb-4 hover-scale">
               <svg className="w-8 h-8 text-brand" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" />
               </svg>
@@ -202,12 +204,19 @@ export default async function HomePage() {
       </Section>
 
       {/* CTA Section */}
-      <Section className="bg-gradient-to-r from-brand to-brand-fg text-white">
-        <div className="text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
+      <Section className="bg-gradient-to-r from-brand to-brand-fg text-white relative overflow-hidden">
+        {/* Background decoration */}
+        <div className="absolute inset-0 bg-gradient-to-r from-brand/90 to-brand-fg/90"></div>
+        <div className="absolute top-0 left-0 w-full h-full">
+          <div className="absolute top-10 left-10 w-20 h-20 bg-white/10 rounded-full animate-float"></div>
+          <div className="absolute top-20 right-20 w-16 h-16 bg-white/5 rounded-full animate-float" style={{ animationDelay: '1s' }}></div>
+          <div className="absolute bottom-20 left-1/4 w-12 h-12 bg-white/10 rounded-full animate-float" style={{ animationDelay: '2s' }}></div>
+        </div>
+        <div className="text-center relative z-10">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 animate-fade-in-up">
             Ready to Transform Your Space?
           </h2>
-          <p className="text-xl mb-8 max-w-2xl mx-auto opacity-90">
+          <p className="text-xl mb-8 max-w-2xl mx-auto opacity-90 animate-fade-in-up" style={{ animationDelay: '0.1s' }}>
             Browse {siteConfig.name} extensive catalogue and find the perfect pieces to create your dream home.
           </p>
           <Button
@@ -215,7 +224,8 @@ export default async function HomePage() {
             href="/catalogue"
             variant="outline"
             size="lg"
-            className="bg-surface-0 text-brand hover:bg-surface-50 hover-raise"
+            className="bg-surface-0 text-brand hover:bg-surface-50 hover-raise animate-scale-in"
+            style={{ animationDelay: '0.2s' }}
             aria-label="Explore our catalogue"
           >
             Explore Our Catalogue

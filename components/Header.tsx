@@ -28,7 +28,7 @@ export const Header: React.FC<HeaderProps> = ({ contactInfo }) => {
 
   return (
     <>
-      <header className="sticky top-0 z-50 bg-surface-0/80 backdrop-blur-md shadow-soft border-b border-surface-200">
+      <header className="sticky top-0 z-50 bg-surface-0/90 backdrop-blur-lg shadow-soft border-b border-surface-200 transition-all duration-300">
         <Container>
           <div className="flex items-center justify-between h-16">
             {/* Brand Logo */}
@@ -36,21 +36,27 @@ export const Header: React.FC<HeaderProps> = ({ contactInfo }) => {
 
             {/* Desktop Navigation */}
             <nav className="hidden lg:flex items-center space-x-8">
-              {siteConfig.nav.map((item) => (
-                <NavLink key={item.href} href={item.href}>
+              {siteConfig.nav.map((item, index) => (
+                <NavLink 
+                  key={item.href} 
+                  href={item.href}
+                  className="animate-fade-in-up"
+                  style={{ animationDelay: `${index * 0.1}s` }}
+                >
                   {item.label}
                 </NavLink>
               ))}
             </nav>
 
             {/* Desktop CTAs */}
-            <div className="hidden lg:flex items-center space-x-4">
+            <div className="hidden lg:flex items-center space-x-4 animate-fade-in-up" style={{ animationDelay: '0.3s' }}>
               <Button
                 asChild
                 href="/catalogue"
                 variant="outline"
                 size="sm"
                 aria-label="View our catalogue"
+                className="hover-raise"
               >
                 View Catalogue
               </Button>
@@ -60,6 +66,7 @@ export const Header: React.FC<HeaderProps> = ({ contactInfo }) => {
                 variant="primary"
                 size="sm"
                 aria-label="Contact us on WhatsApp"
+                className="hover-glow"
               >
                 WhatsApp
               </Button>

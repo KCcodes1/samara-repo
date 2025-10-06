@@ -5,18 +5,66 @@
 @layer base {
   html {
     font-family: 'Inter', system-ui, sans-serif;
+    scroll-behavior: smooth;
   }
   
   body {
-    @apply text-ink-700 bg-surface-0;
+    @apply text-ink-700 bg-surface-0 antialiased;
+    font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
   }
   
   h1, h2, h3, h4, h5, h6 {
-    @apply tracking-tight;
+    @apply tracking-tight font-semibold leading-tight;
+  }
+  
+  h1 {
+    @apply text-4xl md:text-5xl lg:text-6xl;
+  }
+  
+  h2 {
+    @apply text-3xl md:text-4xl;
+  }
+  
+  h3 {
+    @apply text-2xl md:text-3xl;
+  }
+  
+  h4 {
+    @apply text-xl md:text-2xl;
+  }
+  
+  h5 {
+    @apply text-lg md:text-xl;
+  }
+  
+  h6 {
+    @apply text-base md:text-lg;
   }
   
   a {
-    @apply underline-offset-4 hover:underline focus:outline-none focus:ring-2 focus:ring-brand focus:ring-offset-2;
+    @apply underline-offset-4 hover:underline focus:outline-none focus:ring-2 focus:ring-brand focus:ring-offset-2 transition-all duration-300;
+  }
+  
+  /* Smooth scrolling for anchor links */
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    @apply bg-surface-100;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    @apply bg-ink-300 rounded-full;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-ink-400;
   }
 }
 
@@ -32,35 +80,35 @@
   }
   
   .prose-basic h1 {
-    @apply text-3xl md:text-4xl font-bold mb-6 text-ink-900;
+    @apply text-3xl md:text-4xl font-bold mb-6 text-ink-900 leading-tight;
   }
   
   .prose-basic h2 {
-    @apply text-2xl md:text-3xl font-bold mb-4 text-ink-900;
+    @apply text-2xl md:text-3xl font-bold mb-4 text-ink-900 leading-tight;
   }
   
   .prose-basic h3 {
-    @apply text-xl md:text-2xl font-semibold mb-3 text-ink-900;
+    @apply text-xl md:text-2xl font-semibold mb-3 text-ink-900 leading-tight;
   }
   
   .prose-basic p {
-    @apply mb-4 text-ink-700 leading-relaxed;
+    @apply mb-6 text-ink-700 leading-relaxed text-base md:text-lg;
   }
   
   .prose-basic a {
-    @apply text-brand hover:text-brand-fg underline transition-colors;
+    @apply text-brand hover:text-brand-fg underline underline-offset-4 transition-all duration-300 hover:underline-offset-8;
   }
   
   .prose-basic ul {
-    @apply mb-4 pl-6 list-disc;
+    @apply mb-6 pl-6 list-disc space-y-2;
   }
   
   .prose-basic ol {
-    @apply mb-4 pl-6 list-decimal;
+    @apply mb-6 pl-6 list-decimal space-y-2;
   }
   
   .prose-basic li {
-    @apply mb-2 text-ink-700;
+    @apply text-ink-700 leading-relaxed;
   }
   
   .prose-basic strong {
@@ -69,6 +117,22 @@
   
   .prose-basic em {
     @apply italic text-ink-700;
+  }
+  
+  .prose-basic blockquote {
+    @apply border-l-4 border-brand pl-6 py-2 mb-6 italic text-ink-600 bg-brand-soft/30 rounded-r-lg;
+  }
+  
+  .prose-basic code {
+    @apply bg-surface-100 text-brand px-2 py-1 rounded text-sm font-mono;
+  }
+  
+  .prose-basic pre {
+    @apply bg-ink-900 text-surface-0 p-4 rounded-lg overflow-x-auto mb-6;
+  }
+  
+  .prose-basic pre code {
+    @apply bg-transparent text-surface-0 p-0;
   }
   
   /* Elevated card utility */
@@ -91,10 +155,41 @@
     @apply tracking-wide uppercase text-sm text-brand-fg;
   }
   
-  /* Hover raise effect */
+  /* Enhanced hover effects */
   .hover-raise {
-    @apply transition-transform duration-200 hover:-translate-y-0.5 hover:shadow-card;
+    @apply transition-all duration-300 hover:-translate-y-1 hover:shadow-soft-xl hover:scale-105;
+    transition-timing-function: cubic-bezier(0.34, 1.56, 0.64, 1);
   }
+  
+  .hover-glow {
+    @apply transition-all duration-300 hover:shadow-glow;
+  }
+  
+  .hover-scale {
+    @apply transition-transform duration-300 hover:scale-105;
+  }
+  
+  .hover-fade {
+    @apply transition-opacity duration-300 hover:opacity-80;
+  }
+  
+  /* Loading shimmer effect */
+  .shimmer {
+    @apply relative overflow-hidden;
+  }
+  
+  .shimmer::before {
+    content: '';
+    @apply absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/20 to-transparent;
+    animation: shimmer 2s infinite;
+  }
+  
+  /* Stagger animation delays */
+  .animate-stagger-1 { animation-delay: 0.1s; }
+  .animate-stagger-2 { animation-delay: 0.2s; }
+  .animate-stagger-3 { animation-delay: 0.3s; }
+  .animate-stagger-4 { animation-delay: 0.4s; }
+  .animate-stagger-5 { animation-delay: 0.5s; }
   
   .prose h1 {
     @apply text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-gray-900;
