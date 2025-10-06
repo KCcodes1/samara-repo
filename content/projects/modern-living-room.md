@@ -1,13 +1,12 @@
 ---
-title: "Modern Living Room Transformation"
-slug: "modern-living-room"
-cover: "/uploads/beutiful-living-room.jpeg"
+title: Modern Living Room Transformation
+slug: modern-living-room
+cover: /uploads/modern-livingroom.jpg
 gallery:
-  - "/uploads/beutiful-living-room.jpeg"
-  - "/uploads/hero.jpg"
-location: "Nairobi, Kenya"
-style: "Modern"
-date: "2024-01-15"
+  - /uploads/modern-livingroom.jpg
+location: Nairobi, Kenya
+style: Modern
+date: 2024-01-15
 ---
 
 # Modern Living Room Transformation
