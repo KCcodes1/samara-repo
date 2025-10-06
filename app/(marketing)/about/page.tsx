@@ -107,7 +107,7 @@ export default async function AboutPage() {
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-ink-900 mb-4">What Our Clients Say</h2>
             <p className="text-lg text-ink-600 max-w-2xl mx-auto">
-              Don't just take our word for it - hear from our satisfied clients.
+              Don&apos;t just take our word for it - hear from our satisfied clients.
             </p>
           </div>
           
@@ -124,7 +124,7 @@ export default async function AboutPage() {
                   </div>
                 </div>
                 <p className="text-ink-700 mb-4 italic">
-                  "{testimonial.testimonial}"
+                  &ldquo;{testimonial.testimonial}&rdquo;
                 </p>
                 <div className="font-semibold text-ink-900">{testimonial.name}</div>
                 <div className="text-sm text-ink-600">{testimonial.location}</div>
