@@ -1,17 +1,33 @@
 ---
-title: "Premium Decorative Bags Kenya | Samara Homes Kenya - Stylish Home Storage Bags Nairobi, Mombasa, Kisumu, Meru"
+title: Premium Decorative Bags Kenya | Samara Homes Kenya - Stylish Home Storage
+  Bags Nairobi, Meru
 slug: decorative-bags
 price: 2800
-categories: ["decorative-bags"]
-tags: ["decorative bags Kenya", "home storage bags Kenya", "stylish bags Kenya", "Nairobi decorative bags", "Mombasa decorative bags", "Kisumu decorative bags", "Meru decorative bags", "Samara Homes Kenya", "Samara House Kenya", "Samara Decor Kenya", "home accessories", "storage solutions"]
+categories:
+  - decorative-bags
+tags:
+  - decorative bags Kenya
+  - home storage bags Kenya
+  - stylish bags Kenya
+  - Nairobi decorative bags
+  - Mombasa decorative bags
+  - Kisumu decorative bags
+  - Meru decorative bags
+  - Samara Homes Kenya
+  - Samara House Kenya
+  - Samara Decor Kenya
+  - home accessories
+  - storage solutions
 materials:
   - Canvas
   - Linen
   - Decorative Fabrics
 images:
-  - /uploads/decorative-bags.jpg
+  - /uploads/baskets-woven.jpeg
 featured: true
-description: "Premium Decorative Bags by Samara Homes Kenya - Stylish home storage bags for homes in Nairobi, Mombasa, Kisumu, Meru. Beautiful decorative bags that combine functionality with elegant design."
+description: Premium Decorative Bags by Samara Homes Kenya - Stylish home
+  storage bags for homes in Nairobi, Mombasa, Kisumu, Meru. Beautiful decorative
+  bags that combine functionality with elegant design.
 ---
 Transform your home storage with these **premium decorative bags** from **Samara Homes Kenya**. Perfect for homes in **Nairobi**, **Mombasa**, **Kisumu**, and **Meru**, these stylish bags combine functionality with elegant design.
 
