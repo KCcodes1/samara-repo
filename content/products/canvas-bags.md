@@ -1,17 +1,33 @@
 ---
-title: "Premium Canvas Bags Kenya | Samara Homes Kenya - Durable Storage Bags Nairobi, Mombasa, Kisumu, Meru"
+title: Premium Canvas Bags Kenya | Samara Homes Kenya - Durable Storage Bags
+  Nairobi, Meru
 slug: canvas-bags
 price: 2400
-categories: ["canvas-bags"]
-tags: ["canvas bags Kenya", "storage bags Kenya", "durable bags Kenya", "Nairobi canvas bags", "Mombasa canvas bags", "Kisumu canvas bags", "Meru canvas bags", "Samara Homes Kenya", "Samara House Kenya", "Samara Decor Kenya", "storage solutions", "durable bags"]
+categories:
+  - canvas-bags
+tags:
+  - canvas bags Kenya
+  - storage bags Kenya
+  - durable bags Kenya
+  - Nairobi canvas bags
+  - Mombasa canvas bags
+  - Kisumu canvas bags
+  - Meru canvas bags
+  - Samara Homes Kenya
+  - Samara House Kenya
+  - Samara Decor Kenya
+  - storage solutions
+  - durable bags
 materials:
   - Canvas
   - Reinforced Stitching
   - Durable Hardware
 images:
-  - /uploads/canvas-bags.jpg
+  - /uploads/canvas-bag.jpeg
 featured: true
-description: "Premium Canvas Bags by Samara Homes Kenya - Durable storage bags for homes in Nairobi, Mombasa, Kisumu, Meru. Strong canvas bags that combine durability with functionality."
+description: Premium Canvas Bags by Samara Homes Kenya - Durable storage bags
+  for homes in Nairobi, Mombasa, Kisumu, Meru. Strong canvas bags that combine
+  durability with functionality.
 ---
 Organize your space with these **premium canvas bags** from **Samara Homes Kenya**. Perfect for homes in **Nairobi**, **Mombasa**, **Kisumu**, and **Meru**, these durable canvas bags combine strength with functionality.
 
