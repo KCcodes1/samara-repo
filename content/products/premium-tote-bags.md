@@ -1,16 +1,31 @@
 ---
-title: "Premium Tote Bags Kenya | Samara Homes Kenya - Stylish Storage Solutions Nairobi, Mombasa, Kisumu, Meru"
+title: Premium Tote Bags Kenya | Samara Homes Kenya - Stylish Storage Solutions
+  Nairobi, Meru
 slug: premium-tote-bags
 price: 2500
-categories: ["tote-bags"]
-tags: ["tote bags Kenya", "storage bags Kenya", "Nairobi tote bags", "Mombasa tote bags", "Kisumu tote bags", "Meru tote bags", "Samara Homes Kenya", "Samara House Kenya", "Samara Decor Kenya", "home storage", "decorative bags"]
+categories:
+  - tote-bags
+tags:
+  - tote bags Kenya
+  - storage bags Kenya
+  - Nairobi tote bags
+  - Mombasa tote bags
+  - Kisumu tote bags
+  - Meru tote bags
+  - Samara Homes Kenya
+  - Samara House Kenya
+  - Samara Decor Kenya
+  - home storage
+  - decorative bags
 materials:
   - Canvas
   - Leather
 images:
-  - /uploads/tote-bags.jpg
+  - /uploads/tote-bag.webp
 featured: true
-description: "Premium Tote Bags by Samara Homes Kenya - Stylish and functional storage solutions for homes in Nairobi, Mombasa, Kisumu, Meru. Perfect for organization and home décor."
+description: Premium Tote Bags by Samara Homes Kenya - Stylish and functional
+  storage solutions for homes in Nairobi, Mombasa, Kisumu, Meru. Perfect for
+  organization and home décor.
 ---
 Transform your home organization with these **premium tote bags** from **Samara Homes Kenya**. Perfect for homes in **Nairobi**, **Mombasa**, **Kisumu**, and **Meru**, these stylish storage solutions combine functionality with elegant design.
 
