@@ -1,16 +1,32 @@
 ---
-title: "Premium Lunch Bags Kenya | Samara Homes Kenya - Stylish Food Storage Nairobi, Mombasa, Kisumu, Meru"
+title: Premium Lunch Bags Kenya | Samara Homes Kenya - Stylish Food Storage
+  Nairobi, Meru
 slug: lunch-bags
 price: 1800
-categories: ["lunch-bags"]
-tags: ["lunch bags Kenya", "food storage bags Kenya", "insulated lunch bags", "Nairobi lunch bags", "Mombasa lunch bags", "Kisumu lunch bags", "Meru lunch bags", "Samara Homes Kenya", "Samara House Kenya", "Samara Decor Kenya", "food storage", "lunch containers"]
+categories:
+  - lunch-bags
+tags:
+  - lunch bags Kenya
+  - food storage bags Kenya
+  - insulated lunch bags
+  - Nairobi lunch bags
+  - Mombasa lunch bags
+  - Kisumu lunch bags
+  - Meru lunch bags
+  - Samara Homes Kenya
+  - Samara House Kenya
+  - Samara Decor Kenya
+  - food storage
+  - lunch containers
 materials:
   - Insulated Fabric
   - Waterproof Lining
 images:
-  - /uploads/lunch-bags.jpg
+  - /uploads/lunch-bag.jpeg
 featured: true
-description: "Premium Lunch Bags by Samara Homes Kenya - Stylish and functional food storage solutions for homes in Nairobi, Mombasa, Kisumu, Meru. Perfect for keeping food fresh and organized."
+description: Premium Lunch Bags by Samara Homes Kenya - Stylish and functional
+  food storage solutions for homes in Nairobi, Mombasa, Kisumu, Meru. Perfect
+  for keeping food fresh and organized.
 ---
 Transform your food storage with these **premium lunch bags** from **Samara Homes Kenya**. Perfect for homes in **Nairobi**, **Mombasa**, **Kisumu**, and **Meru**, these stylish and functional bags keep your food fresh and organized.
 
