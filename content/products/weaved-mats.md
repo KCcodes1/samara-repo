@@ -1,17 +1,33 @@
 ---
-title: "Premium Weaved Mats Kenya | Samara Homes Kenya - Traditional Floor Mats Nairobi, Mombasa, Kisumu, Meru"
+title: Premium Weaved Mats Kenya | Samara Homes Kenya - Traditional Floor Mats
+  Nairobi, Meru
 slug: weaved-mats
 price: 3200
-categories: ["weaved-mats"]
-tags: ["weaved mats Kenya", "floor mats Kenya", "traditional mats", "Nairobi mats", "Mombasa mats", "Kisumu mats", "Meru mats", "Samara Homes Kenya", "Samara House Kenya", "Samara Decor Kenya", "floor coverings", "traditional crafts"]
+categories:
+  - weaved-mats
+tags:
+  - weaved mats Kenya
+  - floor mats Kenya
+  - traditional mats
+  - Nairobi mats
+  - Mombasa mats
+  - Kisumu mats
+  - Meru mats
+  - Samara Homes Kenya
+  - Samara House Kenya
+  - Samara Decor Kenya
+  - floor coverings
+  - traditional crafts
 materials:
   - Natural Fibers
   - Sisal
   - Jute
 images:
-  - /uploads/weaved-mats.jpg
+  - /uploads/woven-mat.jpg
 featured: true
-description: "Premium Weaved Mats by Samara Homes Kenya - Traditional and modern floor mats for homes in Nairobi, Mombasa, Kisumu, Meru. Beautiful handcrafted mats that add warmth and style to any room."
+description: Premium Weaved Mats by Samara Homes Kenya - Traditional and modern
+  floor mats for homes in Nairobi, Mombasa, Kisumu, Meru. Beautiful handcrafted
+  mats that add warmth and style to any room.
 ---
 Enhance your floors with these **premium weaved mats** from **Samara Homes Kenya**. Perfect for homes in **Nairobi**, **Mombasa**, **Kisumu**, and **Meru**, these traditional and modern mats add warmth, style, and cultural authenticity to any space.
 
