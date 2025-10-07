@@ -1,9 +1,23 @@
 ---
-title: "Premium Throw Pillows Kenya | Samara Homes Kenya - Decorative Cushions Nairobi, Mombasa, Kisumu, Meru"
+title: Premium Throw Pillows Kenya | Samara Homes Kenya - Decorative Cushions
+  Nairobi, Meru
 slug: throw-pillows
 price: 3500
-categories: ["throw-pillows"]
-tags: ["throw pillows Kenya", "decorative cushions Kenya", "home pillows Kenya", "Nairobi throw pillows", "Mombasa throw pillows", "Kisumu throw pillows", "Meru throw pillows", "Samara Homes Kenya", "Samara House Kenya", "Samara Decor Kenya", "home décor", "cushions"]
+categories:
+  - throw-pillows
+tags:
+  - throw pillows Kenya
+  - decorative cushions Kenya
+  - home pillows Kenya
+  - Nairobi throw pillows
+  - Mombasa throw pillows
+  - Kisumu throw pillows
+  - Meru throw pillows
+  - Samara Homes Kenya
+  - Samara House Kenya
+  - Samara Decor Kenya
+  - home décor
+  - cushions
 materials:
   - Cotton
   - Linen
@@ -12,7 +26,9 @@ materials:
 images:
   - /uploads/throw-pillows.jpg
 featured: true
-description: "Premium Throw Pillows by Samara Homes Kenya - Decorative cushions for homes in Nairobi, Mombasa, Kisumu, Meru. Beautiful throw pillows that add comfort and style to any living space."
+description: Premium Throw Pillows by Samara Homes Kenya - Decorative cushions
+  for homes in Nairobi, Mombasa, Kisumu, Meru. Beautiful throw pillows that add
+  comfort and style to any living space.
 ---
 Enhance your comfort and style with these **premium throw pillows** from **Samara Homes Kenya**. Perfect for homes in **Nairobi**, **Mombasa**, **Kisumu**, and **Meru**, these decorative cushions add comfort, style, and personality to any living space.
 
