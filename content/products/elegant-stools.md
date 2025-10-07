@@ -1,16 +1,32 @@
 ---
-title: "Elegant Stools Kenya | Samara Homes Kenya - Premium Seating Solutions Nairobi, Mombasa, Kisumu, Meru"
+title: Elegant Stools Kenya | Samara Homes Kenya - Premium Seating Solutions
+  Nairobi, Meru
 slug: elegant-stools
 price: 8500
-categories: ["stools"]
-tags: ["stools Kenya", "bar stools Kenya", "accent stools Kenya", "Nairobi stools", "Mombasa stools", "Kisumu stools", "Meru stools", "Samara Homes Kenya", "Samara House Kenya", "Samara Decor Kenya", "seating solutions", "furniture Kenya"]
+categories:
+  - stools
+tags:
+  - stools Kenya
+  - bar stools Kenya
+  - accent stools Kenya
+  - Nairobi stools
+  - Mombasa stools
+  - Kisumu stools
+  - Meru stools
+  - Samara Homes Kenya
+  - Samara House Kenya
+  - Samara Decor Kenya
+  - seating solutions
+  - furniture Kenya
 materials:
   - Wood
   - Upholstery
 images:
-  - /uploads/stools.jpg
+  - /uploads/elegant-stools.webp
 featured: true
-description: "Elegant Stools by Samara Homes Kenya - Premium seating solutions for homes in Nairobi, Mombasa, Kisumu, Meru. Perfect for kitchen islands, living areas, and dining spaces."
+description: Elegant Stools by Samara Homes Kenya - Premium seating solutions
+  for homes in Nairobi, Mombasa, Kisumu, Meru. Perfect for kitchen islands,
+  living areas, and dining spaces.
 ---
 Enhance your seating with these **elegant stools** from **Samara Homes Kenya**. Perfect for homes in **Nairobi**, **Mombasa**, **Kisumu**, and **Meru**, these premium seating solutions combine comfort with sophisticated design.
 
