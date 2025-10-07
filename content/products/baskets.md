@@ -1,18 +1,34 @@
 ---
-title: "Premium Baskets Kenya | Samara Homes Kenya - Storage Baskets Nairobi, Mombasa, Kisumu, Meru"
+title: Premium Baskets Kenya | Samara Homes Kenya - Storage Baskets Nairobi,
+  Mombasa, Kisumu, Meru
 slug: baskets
 price: 4200
-categories: ["baskets"]
-tags: ["baskets Kenya", "storage baskets Kenya", "woven baskets Kenya", "Nairobi baskets", "Mombasa baskets", "Kisumu baskets", "Meru baskets", "Samara Homes Kenya", "Samara House Kenya", "Samara Decor Kenya", "home storage", "decorative baskets"]
+categories:
+  - baskets
+tags:
+  - baskets Kenya
+  - storage baskets Kenya
+  - woven baskets Kenya
+  - Nairobi baskets
+  - Mombasa baskets
+  - Kisumu baskets
+  - Meru baskets
+  - Samara Homes Kenya
+  - Samara House Kenya
+  - Samara Decor Kenya
+  - home storage
+  - decorative baskets
 materials:
   - Natural Fibers
   - Sisal
   - Rattan
   - Bamboo
 images:
-  - /uploads/baskets.jpg
+  - /uploads/baskets-woven.jpeg
 featured: true
-description: "Premium Baskets by Samara Homes Kenya - Storage baskets for homes in Nairobi, Mombasa, Kisumu, Meru. Beautiful woven baskets that combine functionality with traditional craftsmanship."
+description: Premium Baskets by Samara Homes Kenya - Storage baskets for homes
+  in Nairobi, Mombasa, Kisumu, Meru. Beautiful woven baskets that combine
+  functionality with traditional craftsmanship.
 ---
 Organize your space with these **premium baskets** from **Samara Homes Kenya**. Perfect for homes in **Nairobi**, **Mombasa**, **Kisumu**, and **Meru**, these beautiful woven baskets combine functionality with traditional craftsmanship.
 
