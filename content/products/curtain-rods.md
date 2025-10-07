@@ -1,18 +1,33 @@
 ---
-title: "Premium Curtain Rods Kenya | Samara Homes Kenya - Window Hardware Nairobi, Mombasa, Kisumu, Meru"
+title: Premium Curtain Rods Kenya | Samara Homes Kenya - Window Hardware Nairobi, Meru
 slug: curtain-rods
 price: 4500
-categories: ["curtain-rods"]
-tags: ["curtain rods Kenya", "window hardware Kenya", "curtain hardware Kenya", "Nairobi curtain rods", "Mombasa curtain rods", "Kisumu curtain rods", "Meru curtain rods", "Samara Homes Kenya", "Samara House Kenya", "Samara Decor Kenya", "window treatments", "curtain hardware"]
+categories:
+  - curtain-rods
+tags:
+  - curtain rods Kenya
+  - window hardware Kenya
+  - curtain hardware Kenya
+  - Nairobi curtain rods
+  - Mombasa curtain rods
+  - Kisumu curtain rods
+  - Meru curtain rods
+  - Samara Homes Kenya
+  - Samara House Kenya
+  - Samara Decor Kenya
+  - window treatments
+  - curtain hardware
 materials:
   - Metal
   - Wood
   - Aluminum
   - Steel
 images:
-  - /uploads/curtain-rods.jpg
+  - /uploads/curatin-rod.jpg
 featured: true
-description: "Premium Curtain Rods by Samara Homes Kenya - Window hardware for homes in Nairobi, Mombasa, Kisumu, Meru. Durable curtain rods that provide perfect support for your window treatments."
+description: Premium Curtain Rods by Samara Homes Kenya - Window hardware for
+  homes in Nairobi, Mombasa, Kisumu, Meru. Durable curtain rods that provide
+  perfect support for your window treatments.
 ---
 Complete your window treatments with these **premium curtain rods** from **Samara Homes Kenya**. Perfect for homes in **Nairobi**, **Mombasa**, **Kisumu**, and **Meru**, these durable curtain rods provide perfect support for your window treatments.
 
