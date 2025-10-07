@@ -33,8 +33,28 @@ export async function getProductBySlug(slug: string) {
 
 export type Category = { slug: string; title: string };
 
-export function getCategories(): Category[] {
-  const raw = readFile(joinContent("categories", "categories.json"));
-  const json = JSON.parse(raw) as { categories: Category[] };
-  return json.categories;
+export async function getCategories(): Promise<Category[]> {
+  const products = await getAllProducts();
+  const categoryMap = new Map<string, string>();
+  
+  // Extract unique categories from all products
+  products.forEach(product => {
+    if (product.categories) {
+      product.categories.forEach(categorySlug => {
+        if (!categoryMap.has(categorySlug)) {
+          // Convert slug to title (capitalize and replace hyphens with spaces)
+          const title = categorySlug
+            .split('-')
+            .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+            .join(' ');
+          categoryMap.set(categorySlug, title);
+        }
+      });
+    }
+  });
+  
+  // Convert map to array and sort alphabetically
+  return Array.from(categoryMap.entries())
+    .map(([slug, title]) => ({ slug, title }))
+    .sort((a, b) => a.title.localeCompare(b.title));
 }

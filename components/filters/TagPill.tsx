@@ -15,11 +15,11 @@ export function TagPill({
 }: TagPillProps) {
   return (
     <button
-      onClick={() => onToggle()}
+      onClick={() => onToggle(!selected)}
       className={`
         inline-flex items-center px-4 py-2 text-sm font-medium rounded-full transition-all duration-200
         ${selected 
-          ? 'bg-brand text-white shadow-soft hover:bg-brand-fg' 
+          ? 'bg-brand text-white shadow-soft hover:bg-brand-dark' 
           : 'bg-surface-100 text-ink-600 hover:bg-surface-200 hover:text-ink-800'
         }
         ${className}
