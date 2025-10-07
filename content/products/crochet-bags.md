@@ -1,17 +1,33 @@
 ---
-title: "Premium Crochet Bags Kenya | Samara Homes Kenya - Handcrafted Storage Bags Nairobi, Mombasa, Kisumu, Meru"
+title: Premium Crochet Bags Kenya | Samara Homes Kenya - Handcrafted Storage
+  Bags Nairobi, Mombasa, Kisumu, Meru
 slug: crochet-bags
 price: 2200
-categories: ["crochet-bags"]
-tags: ["crochet bags Kenya", "handcrafted bags Kenya", "storage bags Kenya", "Nairobi crochet bags", "Mombasa crochet bags", "Kisumu crochet bags", "Meru crochet bags", "Samara Homes Kenya", "Samara House Kenya", "Samara Decor Kenya", "handmade bags", "decorative storage"]
+categories:
+  - crochet-bags
+tags:
+  - crochet bags Kenya
+  - handcrafted bags Kenya
+  - storage bags Kenya
+  - Nairobi crochet bags
+  - Mombasa crochet bags
+  - Kisumu crochet bags
+  - Meru crochet bags
+  - Samara Homes Kenya
+  - Samara House Kenya
+  - Samara Decor Kenya
+  - handmade bags
+  - decorative storage
 materials:
   - Cotton Yarn
   - Acrylic Yarn
   - Natural Fibers
 images:
-  - /uploads/crochet-bags.jpg
+  - /uploads/crochet-bag.jpg
 featured: true
-description: "Premium Crochet Bags by Samara Homes Kenya - Handcrafted storage bags for homes in Nairobi, Mombasa, Kisumu, Meru. Beautiful crochet bags that combine functionality with artistic beauty."
+description: Premium Crochet Bags by Samara Homes Kenya - Handcrafted storage
+  bags for homes in Nairobi, Mombasa, Kisumu, Meru. Beautiful crochet bags that
+  combine functionality with artistic beauty.
 ---
 Add artistic beauty to your storage with these **premium crochet bags** from **Samara Homes Kenya**. Perfect for homes in **Nairobi**, **Mombasa**, **Kisumu**, and **Meru**, these handcrafted bags combine functionality with artistic beauty.
 
