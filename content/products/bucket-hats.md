@@ -1,18 +1,33 @@
 ---
-title: "Premium Bucket Hats Kenya | Samara Homes Kenya - Stylish Headwear Nairobi, Mombasa, Kisumu, Meru"
+title: Premium Bucket Hats Kenya | Samara Homes Kenya - Stylish Headwear Nairobi, Meru
 slug: bucket-hats
 price: 1500
-categories: ["bucket-hats"]
-tags: ["bucket hats Kenya", "headwear Kenya", "fashion accessories Kenya", "Nairobi bucket hats", "Mombasa bucket hats", "Kisumu bucket hats", "Meru bucket hats", "Samara Homes Kenya", "Samara House Kenya", "Samara Decor Kenya", "fashion accessories", "headwear"]
+categories:
+  - bucket-hats
+tags:
+  - bucket hats Kenya
+  - headwear Kenya
+  - fashion accessories Kenya
+  - Nairobi bucket hats
+  - Mombasa bucket hats
+  - Kisumu bucket hats
+  - Meru bucket hats
+  - Samara Homes Kenya
+  - Samara House Kenya
+  - Samara Decor Kenya
+  - fashion accessories
+  - headwear
 materials:
   - Cotton
   - Canvas
   - Denim
   - Decorative Fabrics
 images:
-  - /uploads/bucket-hats.jpg
+  - /uploads/bucket-hat.jpeg
 featured: true
-description: "Premium Bucket Hats by Samara Homes Kenya - Stylish headwear for homes in Nairobi, Mombasa, Kisumu, Meru. Beautiful bucket hats that combine fashion with functionality."
+description: Premium Bucket Hats by Samara Homes Kenya - Stylish headwear for
+  homes in Nairobi, Mombasa, Kisumu, Meru. Beautiful bucket hats that combine
+  fashion with functionality.
 ---
 Complete your style with these **premium bucket hats** from **Samara Homes Kenya**. Perfect for homes in **Nairobi**, **Mombasa**, **Kisumu**, and **Meru**, these stylish headwear pieces combine fashion with functionality.
 
