@@ -3,7 +3,11 @@ title: Samara Homes Kenya - Premium Interior Design & Home Décor in Nairobi,
   Mombasa, Kisumu, Meru
 slug: home
 heroTitle: Elevate Your Space with Samara Homes Kenya
-heroSubtitle: ""
+heroSubtitle: Discover Kenya’s premier collection of home décor and interior
+  design. From Nairobi to Mombasa, we bring you luxury curtains, elegant
+  furniture, and unique handmade accents that reflect your style. Explore our
+  full range of décor and accessories to transform every room into a space you
+  love.
 heroImage: /uploads/new-hero.jpg
 description: Discover Kenya’s premier collection of home décor and interior
   design. From Nairobi to Mombasa, we bring you luxury curtains, elegant
