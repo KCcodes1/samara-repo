@@ -1,18 +1,34 @@
 ---
-title: "Premium Wooden Stools Kenya | Samara Homes Kenya - Handcrafted Wood Stools Nairobi, Mombasa, Kisumu, Meru"
+title: Premium Wooden Stools Kenya | Samara Homes Kenya - Handcrafted Wood
+  Stools Nairobi, Mombasa, Kisumu, Meru
 slug: wooden-stools
 price: 6500
-categories: ["wooden-stools"]
-tags: ["wooden stools Kenya", "wood stools Kenya", "handcrafted stools Kenya", "Nairobi wooden stools", "Mombasa wooden stools", "Kisumu wooden stools", "Meru wooden stools", "Samara Homes Kenya", "Samara House Kenya", "Samara Decor Kenya", "wooden furniture", "handcrafted furniture"]
+categories:
+  - wooden-stools
+tags:
+  - wooden stools Kenya
+  - wood stools Kenya
+  - handcrafted stools Kenya
+  - Nairobi wooden stools
+  - Mombasa wooden stools
+  - Kisumu wooden stools
+  - Meru wooden stools
+  - Samara Homes Kenya
+  - Samara House Kenya
+  - Samara Decor Kenya
+  - wooden furniture
+  - handcrafted furniture
 materials:
   - Teak Wood
   - Mahogany
   - Oak
   - Local Hardwoods
 images:
-  - /uploads/wooden-stools.jpg
+  - /uploads/elegant-stools.webp
 featured: true
-description: "Premium Wooden Stools by Samara Homes Kenya - Handcrafted wood stools for homes in Nairobi, Mombasa, Kisumu, Meru. Beautiful wooden stools that combine traditional craftsmanship with modern design."
+description: Premium Wooden Stools by Samara Homes Kenya - Handcrafted wood
+  stools for homes in Nairobi, Mombasa, Kisumu, Meru. Beautiful wooden stools
+  that combine traditional craftsmanship with modern design.
 ---
 Add natural beauty to your seating with these **premium wooden stools** from **Samara Homes Kenya**. Perfect for homes in **Nairobi**, **Mombasa**, **Kisumu**, and **Meru**, these handcrafted wood stools combine traditional craftsmanship with modern design.
 
